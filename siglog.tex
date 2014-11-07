@@ -1,0 +1,140 @@
+%%
+% SigLog paper on HoTT
+% May 2014
+% IHP
+%%
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb,latexsym}
+\usepackage{amsthm}
+\usepackage{bm}
+\input{prooftree}
+\usepackage[all,cmtip]{xy}
+\input{diagxy}
+\CompileMatrices       
+\usepackage{url}
+%\usepackage{pdfpages}
+
+
+% categories
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\B}{\ensuremath{\mathbb{B}}}
+\newcommand{\T}{\ensuremath{\mathbb{T}}}
+\newcommand{\CC}{\ensuremath{\mathcal{C}}}
+\newcommand{\BB}{\ensuremath{\mathcal{B}}}
+%\newcommand{\EE}{\ensuremath{\mathcal{E}}}
+\newcommand{\psh}[1]{\ensuremath{\mathsf{Set}^{#1^{\mathrm{op}}}}}
+\newcommand{\Set}{\ensuremath{\mathsf{Set}}}
+\newcommand{\Cat}{\ensuremath{\mathsf{Cat}}}
+\newcommand{\covpsh}[1]{\ensuremath{\mathsf{Set}^{#1}}}
+%\renewcommand{\to}{\ensuremath{\rightarrow}}
+\newcommand{\pocorner}[1][dr]{\save*!/#1+1.2pc/#1:(1,-1)@^{|-}\restore}
+\newcommand{\pbcorner}[1][dr]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\y}{\ensuremath{\mathsf{y}}} % Yoneda embedding
+
+% arrows
+\newcommand{\hook}{\ensuremath{\hookrightarrow}}
+\newcommand{\mono}{\ensuremath{\rightarrowtail}}
+%\newcommand{\epi}{\ensuremath{\twoheadrightarrow}}
+
+
+% cubical sets
+\newcommand{\I}{\ensuremath{\mathrm{I}}}
+\renewcommand{\H}{\ensuremath{\mathbb{H}}}
+\newcommand{\HH}{\ensuremath{\mathcal{H}}}
+
+% type theory
+\newcommand{\G}{\ensuremath{\Gamma}}
+\newcommand{\defeq}{=_{\mathrm{def}}}
+\newcommand{\type}{\mathsf{type}}       
+\newcommand{\types}[2]{#1 \vdash #2:\type}
+\newcommand{\Gtypes}[1]{\types{\Gamma}{#1}}
+\newcommand{\term}[2]{#1\,:\,#2}
+\newcommand{\terms}[2]{#1 \vdash #2}
+\newcommand{\Gterms}[1]{\terms{\Gamma}{#1}}
+\newcommand{\ext}[2]{{#1\!\centerdot\! #2}}
+\newcommand{\ty}{\ensuremath{\,:\,}}
+\newcommand{\pair}[1]{\ensuremath{\langle #1\rangle}}
+\newcommand{\exdot}{\ensuremath{\!\centerdot\!}}
+\newcommand{\texdot}{\ensuremath{\centerdot}}
+
+% Id types
+\newcommand{\Id}{\mathsf{Id}}
+\newcommand{\id}[1]{\Id_{#1}}
+\newcommand{\refl}{\mathsf{refl}}
+\newcommand{\idrec}{\mathsf{idrec}}
+\newcommand{\jay}{\mathsf{j}}
+\renewcommand{\i}{\mathsf{i}}
+
+% Universe
+\newcommand{\U}{\ensuremath{\mathcal{U}}}
+\newcommand{\UU}{\ensuremath{\widetilde{\mathcal{U}}}}
+
+% theorem styles
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition} 
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary} 
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark} 
+\newtheorem*{remarks*}{Remarks}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Some title}
+\author{Steve Awodey \and Robert Harper}
+\date{\today}
+
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+i was thinking about this today, and i think we are in a good position now to write a paper about the emerging unification of previously disparate approaches to providing a framework (i hesitate to use the word "foundation") for mathematics, one based on a computational notion of type, the other based on a homotopical notion of type.  moreover, the unification enriches, rather than diminishes or opposes, the whole of classical mathematics, and is sufficiently natural and expressive that it can support machine-checked proof without excessive encodings or boring details that have hindered previous efforts.  importantly, the unification arises from the contributions of computer scientists and mathematicians working together, each bringing a perspective that, to a degree, the other lacked, with the result being a crackling atmosphere of rapid developments on both sides.  from the cs side i think the critical point is the emphasis on *abstraction* in the sense of characterizing structures by behavior, not their content (which, of course, is also the foundation of category theory and of gentzen's proof theory), and from the math side i think the critical point is the emphasis on *structure vs property* or *proof relevance* or *proofs as mathematical objects*) (which, of course, was also present in brouwer's constructivism and martin-loef's type theory).
+
+the critical starting point is, oddly enough from a naive viewpoint, equality, which is ordinarily taken as trivial (first-order-logic-with-equality being utterly standard), and an analysis of what "is" is from a proof-relevant point of view.  in martin-loef's case equality is the least reflexive relation, so the only evidence for an equation is reflexivity.  it has the advantage that it admits a direct computational interpretation in which the truth of a proposition is taken as a computation that, when executed, results in a canonical form of that type.  the reduction steps are based on recognizing canonical forms and reacting accordingly, as in the J rule, which must recognize a reflexivity when it sees one.  the matter is a bit delicate, though, at higher types, because it is rather questionable whether one can consider it to be "self-evident" that two functions are the same in order to recognize that one has a loop that might be reflexivity.  this forced ml to a mathematically unsatisfactory account of functions that treated self-evident equality as equality of algorithm, though it was separately discovered by constable (and others, much later) that one could in fact make sense of functions in extension in a computational setting, greatly facilitating the mechanization of mathematics in nuprl as compared to coq.  but in any case one can consider that even function extensionality forces one to consider non-trivial identifications (homotopies).
+
+this leads to vv's formulation of equality as *identification*, in particular treating the ml's equality type (which we should name as such) as an *identification* type, whose elements are identifications of two objects of a type.  identifications, being objects of a type, are subject to further identifications, leading to the concept of a homotopy n-type defined by the structure of the identifications at level n.  vv's view is motivated by the observation that two objects may be identified in two different ways, and that the ways in which two objects are identified matter.  the reason is that the seemingly simple idea of "respect for equality" by functions and families becomes, in this setting, preservation of identifications by functions and families.  the former consideration leads to the investigation of the h-level of a type; the latter leads to the remarkable principle of univalence, which internalizes the "empirical" fact that all constructs definable in type theory preserve identifications, which suggests turning the observation into a principle that all constructs of mathematics *ought* to preserve identifications.  (this could be contentious, or even wrong, depending on one's viewpoint, i think).  without taking a stand on what ought to be, the important observation is that the same type structure emerges in both settings in exactly the same way, provided that one is consistent and careful about what "is" is, so unicity means "up to further identification" in the vv case, but "self-evidently equal" in the ml case.  in other words all of the standard constructions of mathematics can be carried out in both settings, but with a different meaning derived from a different conception of equality.
+
+one important point about the univalent framework is that is subsumes both the classical set-theoretic framework for doing mathematics, and it is "almost" subsumes the constructive framework.  as to the former, we need only explain the hierarchy of n-types, and the fact that classical proof-irrelevant propositions are -1-types, and that classical sets are 0-types (wherein equality of sets is taken as "self-evident"), and that these levels are compatible with lem and with ac as usually conceived, so that standard zfc-based math slots right it without difficulty.  but the advantage of univalent foundations is that it provides infinitely much more structure than just that, and it is fascinating and useful to explore the mathematics of higher n-types, and the uses of proof-relevance at higher dimensions.  as to the latter, the main issue is that the constructive framework, while also by design compatible with classical mathematics (by virtue of being limited to 0-types and -1-types), has a computational foundation---truth is explained in terms of running programs.  this fact has been the central driving force in research in pl's, semantics, and verification for the last several decades, and is clearly of paramount importance.  so the question becomes, can we achieve a grand unification of computational types and homotopy types that provides the richness of hlevels and the foundational and practical pleasures of being justified solely on the basis of computation?  we can say that we are tantalizingly close to achieving such a unification, perhaps via the cubical sets interpretation recently proposed, perhaps through other means currently under investigation.
+
+we can close with saying that we are on the cusp of a revolution, in which two self-contained, well-motivated, well-justified, yet completely disparate frameworks for doing mathematics are not only being consolidated into a single, well-motivated, well-justified framework, but moreover the unified theory enriches and extends the classical framework without disrupting anything that has been achieved in that setting?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{300}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibitem{AW}
+S.~Awodey and M.A.~Warren. Homotopy theoretic models of identity types. \emph{Math. Proc. Camb. Phil. Soc.}, 146, 45--55, 2009.
+
+\bibitem{GvdB}
+B.~van den Berg and R.~Garner. Topological and Simplicial Models of Identity Types. \emph{ACM Transactions on Computational Logic}, 13:1, 2012.
+
+\bibitem{CwF} 
+P.~Dybjer. ``Internal Type Theory." \emph{LNCS} 1158, 120--134, 1996.
+
+\bibitem{GK}  
+N.~Gambino and J.~Kock, ``Polynomial functors and polynomial monads"
+\emph{Math. Proc. Cambridge Phil. Soc.} 154, 153--192, 2013.
+
+\bibitem{Hofmann} 
+
+\bibitem{HoTTbook} 
+\emph{Homotopy Type Theory: Univalent Foundations of Mathematics}, The Univalent Foundations Program, Institute for Advanced Study, 2013. {\tt http://homotopytypetheory.org/book}
+
+\bibitem{KLV}  
+C.~Kapulkin, P.~LeFanu Lumsdaine and V.~Voevodsky, The Simplicial Model of Univalent Foundations. \emph{In preparation}, 2013.
+
+%
+\end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
