@@ -1,0 +1,6 @@
+hi steve,
+
+i don't quite know how to use github in this mode.  i think you may have created a branch for me, but i think i may have clobbered it accidentally.  do we want to work with branches, or with a common main branch to which we both contribute?  i do the latter all the time with my students.
+
+thanks!
+bob
