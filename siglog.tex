@@ -13,12 +13,14 @@
 \input{diagxy}
 \CompileMatrices       
 \usepackage{url}
-%\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{pdfpages}
 
 
 % categories
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\B}{\ensuremath{\mathbb{B}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\T}{\ensuremath{\mathbb{T}}}
 \newcommand{\CC}{\ensuremath{\mathcal{C}}}
 \newcommand{\BB}{\ensuremath{\mathcal{B}}}
@@ -62,6 +64,7 @@
 \newcommand{\Id}{\mathsf{Id}}
 \newcommand{\id}[1]{\Id_{#1}}
 \newcommand{\refl}{\mathsf{refl}}
+\newcommand{\rec}{\mathsf{rec}}
 \newcommand{\idrec}{\mathsf{idrec}}
 \newcommand{\jay}{\mathsf{j}}
 \renewcommand{\i}{\mathsf{i}}
@@ -102,6 +105,52 @@
 the critical starting point is, oddly enough from a naive viewpoint, equality, which is ordinarily taken as trivial (first-order-logic-with-equality being utterly standard), and an analysis of what "is" is from a proof-relevant point of view.  in martin-loef's case equality is the least reflexive relation, so the only evidence for an equation is reflexivity.  it has the advantage that it admits a direct computational interpretation in which the truth of a proposition is taken as a computation that, when executed, results in a canonical form of that type.  the reduction steps are based on recognizing canonical forms and reacting accordingly, as in the J rule, which must recognize a reflexivity when it sees one.  the matter is a bit delicate, though, at higher types, because it is rather questionable whether one can consider it to be "self-evident" that two functions are the same in order to recognize that one has a loop that might be reflexivity.  this forced ml to a mathematically unsatisfactory account of functions that treated self-evident equality as equality of algorithm, though it was separately discovered by constable (and others, much later) that one could in fact make sense of functions in extension in a computational setting, greatly facilitating the mechanization of mathematics in nuprl as compared to coq.  but in any case one can consider that even function extensionality forces one to consider non-trivial identifications (homotopies).
 
 this leads to vv's formulation of equality as *identification*, in particular treating the ml's equality type (which we should name as such) as an *identification* type, whose elements are identifications of two objects of a type.  identifications, being objects of a type, are subject to further identifications, leading to the concept of a homotopy n-type defined by the structure of the identifications at level n.  vv's view is motivated by the observation that two objects may be identified in two different ways, and that the ways in which two objects are identified matter.  the reason is that the seemingly simple idea of "respect for equality" by functions and families becomes, in this setting, preservation of identifications by functions and families.  the former consideration leads to the investigation of the h-level of a type; the latter leads to the remarkable principle of univalence, which internalizes the "empirical" fact that all constructs definable in type theory preserve identifications, which suggests turning the observation into a principle that all constructs of mathematics *ought* to preserve identifications.  (this could be contentious, or even wrong, depending on one's viewpoint, i think).  without taking a stand on what ought to be, the important observation is that the same type structure emerges in both settings in exactly the same way, provided that one is consistent and careful about what "is" is, so unicity means "up to further identification" in the vv case, but "self-evidently equal" in the ml case.  in other words all of the standard constructions of mathematics can be carried out in both settings, but with a different meaning derived from a different conception of equality.
+
+This is not the place for a systematic introduction (for that, see \cite{HoTTbook}), or even a general survey (such as \cite{apw,pw}), but a brief example may serve to convey a bit of the flavor of the new approach, especially the distinctive intermingling of logical and homotopical ideas.  As is the case in conventional M-L type theory, the basic types of booleans $\B$ and natural numbers $\N$ have at most one identification between any two elements, and the same holds for any types that can be constructed from them by means of the usual type constructors $(\Sigma{x:A})B(x)$ and $(\Pi{x:A})B(x)$.  Thus all such types $A$, as well as their equality types $\id{A}(a,a')$ for $a,a':A$, are what are called (``homotopy 0-types'' or simply) ``sets'': these are just those types with at most one identification between any two elements.  An example of a type that is not a set is the circle (or ``$1$-sphere'') $S^1$, which has a base point $b: S^1$ that has many different identifications $\refl(b),\, p,\, p\cdot p,\, ... :\id{S^1}(b,b)$.  Here $\refl(b)$ is the trivial identification, i.e.\ the canonical witness to the reflexivity of identity, but there is also another identification $p$ which is different from $\refl(b)$.  We think of $p$ homotopically as the continuous ``path" that goes once around the circle. 
+
+%
+% draw a circle here, with b and p indicated"
+%
+By the transitivity of equality, 
+\[
+(-)\cdot(-) : \id{S^1}(a,b) \times \id{S^1}(b,c)\to \id{S^1}(a,c)
+\]
+ there are also the ``paths'' $p\cdot p, p\cdot p\cdot p, \ldots$, and by symmetry
+ \[
+ (-)^{-1}:\id{S^1}(a,b) \to \id{S^1}(b,a)
+ \]
+ there are similarly the paths $p^{-1},\, p^{-1}\cdot p^{-1}, \ldots :\id{S^1}(b,b)$.  Although $S^1$ is therefore not a set, it can be shown that $\id{S^1}(b,b)$ is one; that is, the types $\id{\id{S^1}(b,b)}(x,y)$ are either inhabited (by reflexivities) or empty, depending on whether or not $x=y$, for all $x,y : \id{S^1}(b,b)$ --- we say that $S^1$ is a ``(homotopy) 1-type".  This fact follows from the specification of $S^1$ as a new kind of \emph{inductive type}, generalizing the usual specification of the natural numbers and similar structures.  For $S^1$, the inductive specification essentially says that it is the type freely generated by the base point $b:S^1$ and the loop $p:\id{S^1}(b,b)$, in the same sense that the usual inductive specification of $\N$ says that it is the type that is freely generated by $0:\N$ and the succesor function $s:\N\to\N$.  
+  
+ Another type that is not a set is the universe $\U$ of all (small) types.  According to the new Univalence Axiom, identifications between types $A,B:\U$ correspond to ``equivalences" $A\simeq B$, which are generalized type isomorphisms.  In fact, if $A$ and $B$ themselves are sets, then an equivalence $e:A\simeq B$  is just an isomorphism in the usual sense: a pair of maps back and forth that compose to the respective identity mapppings.  Now the booleans $\B$, for example, have two different isomorphisms $\B\simeq \B$, namely the identity and the operation of ``negation'' $\neg:\B\to\B$, which swaps the truth values $0,1:\B$.  Thus by univalence there are (at least) two distinct identifications in $\id{\U}(\B,\B)$, corresponding to these distinct isomorphisms, and so $\U$ is not a set, but, like $S^1$, a ``higher-dimensional" type.  
+ 
+ Now observe that by the basic recursive property of $S^1$ as ``the type freely generated by a point and a loop on it'' there is a map $$\rec(\B,n): S^1 \to \U$$ determined by sending the base point $b:S^1$ to the booleans $\B:\U$ and the generating loop $p : \id{S^1}(b,b)$ to (the identification corresponding under univalence to) ``negation'', say $n : \id{\U}(\B,\B)$.  As a type of the form $\B\to\U$, this is a family of types over $\B$, sometimes called a ``dependent type" and written $x:\B \vdash \rec(\B,n)(x)$.  Homotopically, such a type-family is interpreted as a ``fibration" $E\to\B$, where the total space $E$ is just the sum type $(\Sigma{x:\B})\rec(\B,n)(x)$, equipped with its usual indexing projection.  In the present case, the ``fiber" is then the type $\rec(\B,n)(b) = \B$, and action on (elements of) $\B$ induced by the path $n: \id{S^1}(b,b)$ in the base is then exactly the operation of negation $\neg : \B\to \B$.  Thus, from a homotopical point of view, we have used negation and univalence to construct the ``twisted double cover'' of the circle (see figure \ref{fig:winding}).
+ % fix this:
+\begin{figure}\centering
+  \begin{tikzpicture}[xscale=1.4,yscale=.6]
+    \node (R) at (2,1) {$S^1$};
+    \node (S1) at (2,-2) {$S^1$};
+    \draw[->] (R) -- node[auto] {$\mathsf{double}$} (S1);
+    \draw (0,-2) ellipse (1 and .4);
+    \draw[dotted] (1,0) arc (0:-30:1 and .8);
+    \draw (1,0) arc (0:90:1 and .8) arc (90:270:1 and .3) coordinate (t1);
+    \draw[white,line width=4pt] (t1) arc (-90:90:1 and .8);
+    \draw (t1) arc (-90:90:1 and .8) arc (90:270:1 and .3) coordinate (t2);
+    \draw[white,line width=4pt] (t2) arc (-90:90:1 and .8);
+    \draw (t2) arc (-90:90:1 and .8) arc (90:270:1 and .3) coordinate (t3);
+    \draw[white,line width=4pt] (t3) arc (-90:90:1 and .8);
+    \draw (t3) arc (-90:-30:1 and .8) coordinate (t4);
+    \draw[dotted] (t4) arc (-30:0:1 and .8);
+    \node[fill,circle,inner sep=1pt,label={below:\scriptsize $b$}] at (0,-2.4) {};
+    \node[fill,circle,inner sep=1pt,label={above left:\scriptsize 0}] at (0,.2) {};
+    \node[fill,circle,inner sep=1pt,label={above left:\scriptsize 1}] at (0,1.2) {};
+    \node[fill,circle,inner sep=1pt,label={above left:\scriptsize 2}] at (0,2.2) {};
+  \end{tikzpicture}
+  \caption{The twisted double cover of $S^1$ in classical topology}\label{fig:winding}
+\end{figure}
+%
+This important construction from homotopy theory is closely related to the famous Hopf fibration used to compute some of the higher homotopy groups of spheres.  In this way, logical, type-theoretic, and homotopical ideas are fused with new principles like the univalence axiom to give an entirely new approach to mathematics and computation.
+
+
 
 one important point about the univalent framework is that is subsumes both the classical set-theoretic framework for doing mathematics, and it is "almost" subsumes the constructive framework.  as to the former, we need only explain the hierarchy of n-types, and the fact that classical proof-irrelevant propositions are -1-types, and that classical sets are 0-types (wherein equality of sets is taken as "self-evident"), and that these levels are compatible with lem and with ac as usually conceived, so that standard zfc-based math slots right it without difficulty.  but the advantage of univalent foundations is that it provides infinitely much more structure than just that, and it is fascinating and useful to explore the mathematics of higher n-types, and the uses of proof-relevance at higher dimensions.  as to the latter, the main issue is that the constructive framework, while also by design compatible with classical mathematics (by virtue of being limited to 0-types and -1-types), has a computational foundation---truth is explained in terms of running programs.  this fact has been the central driving force in research in pl's, semantics, and verification for the last several decades, and is clearly of paramount importance.  so the question becomes, can we achieve a grand unification of computational types and homotopy types that provides the richness of hlevels and the foundational and practical pleasures of being justified solely on the basis of computation?  we can say that we are tantalizingly close to achieving such a unification, perhaps via the cubical sets interpretation recently proposed, perhaps through other means currently under investigation.
 
