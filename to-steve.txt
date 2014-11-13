@@ -1,0 +1,21 @@
+hi steve,
+
+i don't quite know how to use github in this mode.  i think you may have created a branch for me, but i think i may have clobbered it accidentally.  do we want to work with branches, or with a common main branch to which we both contribute?  i do the latter all the time with my students.
+
+thanks!
+bob
+
+Hi Bob,
+yep, got it.
+the answer is that I think we don't need branches, we can just both contribute to the main file.
+we both have push rights to the repo, so we just to let each other know when we're writing on the file, in order to avoid too many conflicts, just because resolving them is a pain.
+OK?
+I also replied as a comment on Github -- not sure which is better for discussion?
+
+let me know if you think this example works.
+The idea is to demonstrate some of the basic moves.
+I can expand it a bit more, if that would be good.
+Or is it too hard for the novice to follow, and so not worth developing?
+
+As for the text you provided, I think it serves as a good ontro.  Maybe you could edit it into that form?  Then we just need to add / expand the conclusion.
+
