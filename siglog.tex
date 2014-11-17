@@ -102,17 +102,68 @@
 \maketitle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\todo[inline]{I guess we should decide whether we're pushing Univalent Foundations" or "Homotopy Type Theory".  I've written from the latter perspective, but it might be better to take the former, and probably VV would agree.}
+\todo[inline]{Are we promoting ``Univalent Foundation'' or ``Homotopy Type Theory'' or does it matter?}
 
-Homotopy Type Theory is an emerging currently emerging unification of previously disparate frameworks for formalizing and mechanizing mathematics, one based on a computational conception of the type of a  construction, the other based on a homotopical conception of the (homotopy) type of a space.  Indeed, the name ``homotopy type theory'' can be read in two ways, as ``(homotopy type) theory'' and ``homotopy (type theory)'', neatly summarizing the consolidation of ideas at the heart of the subject.  The computational notion of type has its origins in Brouwer's program of intuitionism, which sought to ground mathematics in the concept of an effective construction (one would say ``algorithm'' these days).  The homotopical notion of type emerges from abstract homotopy theory, in particular Grothendieck's conception of a space as an $\infty$-groupoid.  The former perspective was developed most fully by Per Martin-L\"{o}f, leading in particular to his Intuitionistic Theory of Types, on which Homotopy Type Theory is based.  The latter was initiated by Awodey and Warren, who first observed that the so-called ``identity type'' of Martin-L\"{o}f's Type Theory has the structure of an $\infty$-groupoid, and can be interpreted in any Quillen Model Category, a framework for doing abstract homotopy theory.  The connection was clinched by Voevodsky's formulation of the \emph{univalence axiom}, which, roughly speaking, relates the homotopy-theoretic concept of equivalence to that of the aforementioned identity type.
+Homotopy Type Theory is an emerging currently emerging unification of previously disparate frameworks for formalizing
+and mechanizing mathematics, one based on a computational conception of the type of a construction, the other based on a
+homotopical conception of the (homotopy) type of a space.  Indeed, the name ``homotopy type theory'' can be read in two
+ways, as ``(homotopy type) theory'' and ``homotopy (type theory)'', neatly summarizing the consolidation of ideas at the
+heart of the subject.  The computational notion of type has its origins in Brouwer's program of intuitionism, which
+sought to ground mathematics in the concept of an effective construction (one would say ``algorithm'' these days).  The
+homotopical notion of type emerges from abstract homotopy theory, in particular Grothendieck's conception of a space as
+an $\infty$-groupoid.  The former perspective was developed most fully by Per Martin-L\"{o}f, leading in particular to
+his Intuitionistic Theory of Types, on which Homotopy Type Theory is based.  The latter was initiated by Awodey and
+Warren, who first observed that the so-called ``identity type'' of Martin-L\"{o}f's Type Theory has the structure of an
+$\infty$-groupoid, and can be interpreted in any Quillen Model Category, a framework for doing abstract homotopy theory.
+The connection was clinched by Voevodsky's formulation of the \emph{univalence axiom}, which, roughly speaking, relates
+the homotopy-theoretic concept of equivalence to that of the aforementioned identity type.
 
-Because univalence plays such a central role, Voevodsky has suggested that the unification of the computational and homotopical perspectives be called the \emph{Univalent Unification} of two major lines of development in mathematics.  A critically important point is that the univalent unification is \emph{fully compatible} with classical mathematics; it does not involve any principles that are incompatible with classical reasoning, though it does, at the outset, avoid postulating axioms that are unnecessary for much of the development.  Indeed, the Homotopy Type Theory contains within it the whole of ZF set theory, with or without the Axion of Choice, and with or without the Law of the Excluded Middle, two principles that lie at the heart of classical mathematics and that have, regrettably, been obstacles to the kind of unification described here.  But by not insisting on these axioms globally, it is possible to consider a far richer notion of type than has hitherto been possible in the computational setting, namely one in which types are abstract spaces that have non-trivial higher-dimensional structure, as exemplified by familiar examples such as the $n$-spheres for all $n\geq 0$.  Rather than being ``coded up'' as certain sets living within certain conceptions of space, such as a topological space, these objects arise \emph{synthetically} within the theory, characterized by their introductory and eliminatory forms (mapping-in and mapping-out properties, or universal properties), rather than by how they are constructed as sets.  This perspective greatly simplifies well-known constructions, such as the Hopf fibration or the Eilenberg-MacLane spaces, and supports remarkably simple and clear proofs of well-known results such as the classification of the fundamental groups of the spheres.
+Because univalence plays such a central role, Voevodsky has suggested that the unification of the computational and
+homotopical perspectives be called the \emph{Univalent Unification} of two major lines of development in mathematics.  A
+critically important point is that the univalent unification is \emph{fully compatible} with classical mathematics; it
+does not involve any principles that are incompatible with classical reasoning, though it does, at the outset, avoid
+postulating axioms that are unnecessary for much of the development.  Indeed, the Homotopy Type Theory contains within
+it the whole of ZF set theory, with or without the Axion of Choice, and with or without the Law of the Excluded Middle,
+two principles that lie at the heart of classical mathematics and that have, regrettably, been obstacles to the kind of
+unification described here.  But by not insisting on these axioms globally, it is possible to consider a far richer
+notion of type than has hitherto been possible in the computational setting, namely one in which types are abstract
+spaces that have non-trivial higher-dimensional structure, as exemplified by familiar examples such as the $n$-spheres
+for all $n\geq 0$.  Rather than being ``coded up'' as certain sets living within certain conceptions of space, such as a
+topological space, these objects arise \emph{synthetically} within the theory, characterized by their introductory and
+eliminatory forms (mapping-in and mapping-out properties, or universal properties), rather than by how they are
+constructed as sets.  This perspective greatly simplifies well-known constructions, such as the Hopf fibration or the
+Eilenberg-MacLane spaces, and supports remarkably simple and clear proofs of well-known results such as the
+classification of the fundamental groups of the spheres.
 
-What is it that makes the univalent unification possible?  Although it may be too early to formulate a deep unifying principle, it is possible to make a few observations that will give the reader a sense of its inevitability.  First, all of the constructions of Intuitionistic Type Theory, including especially the previously enigmatic identity type, are homotopy invariant, meaning that type families and mappings between types inherently respect ``paths'' in space representing \emph{identifications} of points in the space.  In particular the formation of type-indexed products and sums of types correspond to analogous constructions on spaces, and, most importantly, the identity type, take as a whole, corresponds to the \emph{total path space} of a space, as originally observed by Awodey and Warren.  Second, a characteristic feature of both intuitionistic type theory and higher homotopy theory is the emphasis on \emph{structure} over \emph{property}.  In intuitionistic mathematics types express propositions, and objects of the type are proofs of those propositions in the form of mathematical constructions that provide evidence for their truth.  A similar emphasis is found in abstract homotopy theory, in which paths (homotopies) may be seen as evidence for the identification (in a sense, ``equality'') of two points.  Two points are not merely equal as a property, but rather are identified by a particular construction.  This approach extends to higher dimensions in that one may speak of the identification of two (parallel) identifications, at all higher dimensions.  Such structure is found in standard settings such as simplicial sets, cubical sets, and globular sets, all of which stress the role of cells as identifications, with the Kan condition ensuring that the interpretation is valid.
+What is it that makes the univalent unification possible?  Although it may be too early to formulate a deep unifying
+principle, it is possible to make a few observations that will give the reader a sense of its inevitability.  First, all
+of the constructions of Intuitionistic Type Theory, including especially the previously enigmatic identity type, are
+homotopy invariant, meaning that type families and mappings between types inherently respect ``paths'' in space
+representing \emph{identifications} of points in the space.  In particular the formation of type-indexed products and
+sums of types correspond to analogous constructions on spaces, and, most importantly, the identity type, take as a
+whole, corresponds to the \emph{total path space} of a space, as originally observed by Awodey and Warren.  Second, a
+characteristic feature of both intuitionistic type theory and higher homotopy theory is the emphasis on \emph{structure}
+over \emph{property}.  In intuitionistic mathematics types express propositions, and objects of the type are proofs of
+those propositions in the form of mathematical constructions that provide evidence for their truth.  A similar emphasis
+is found in abstract homotopy theory, in which paths (homotopies) may be seen as evidence for the identification (in a
+sense, ``equality'') of two points.  Two points are not merely equal as a property, but rather are identified by a
+particular construction.  This approach extends to higher dimensions in that one may speak of the identification of two
+(parallel) identifications, at all higher dimensions.  Such structure is found in standard settings such as simplicial
+sets, cubical sets, and globular sets, all of which stress the role of cells as identifications, with the Kan condition
+ensuring that this interpretation validates the higher groupoid laws and that families and maps respect homotopy.
 
-
-
-this leads to vv's formulation of equality as *identification*, in particular treating the ml's equality type (which we should name as such) as an *identification* type, whose elements are identifications of two objects of a type.  identifications, being objects of a type, are subject to further identifications, leading to the concept of a homotopy n-type defined by the structure of the identifications at level n.  vv's view is motivated by the observation that two objects may be identified in two different ways, and that the ways in which two objects are identified matter.  the reason is that the seemingly simple idea of "respect for equality" by functions and families becomes, in this setting, preservation of identifications by functions and families.  the former consideration leads to the investigation of the h-level of a type; the latter leads to the remarkable principle of univalence, which internalizes the "empirical" fact that all constructs definable in type theory preserve identifications, which suggests turning the observation into a principle that all constructs of mathematics *ought* to preserve identifications.  (this could be contentious, or even wrong, depending on one's viewpoint, i think).  without taking a stand on what ought to be, the important observation is that the same type structure emerges in both settings in exactly the same way, provided that one is consistent and careful about what "is" is, so unicity means "up to further identification" in the vv case, but "self-evidently equal" in the ml case.  in other words all of the standard constructions of mathematics can be carried out in both settings, but with a different meaning derived from a different conception of equality.
+The culmination of this line of thought is the univalence axiom, which governs paths in a Grothendieck universe, a type
+whose elements are themselves types and which is closed under the standard type-formation operations, but for the
+formation of the universe itself.  The question arises as to what is the appropriate notion of identification for
+elements of the universe?  Voevodsky's crucial observation is that two types in a so-called univalent universe ought to
+be identified whenever they are homotopy equivalent, precisely because all of the constructions of type theory, which
+are internalized by the universe, are homotopy invariant.  This is essentially an application of Leibniz's Principle
+stating that two things are equal if they cannot be distinguished, but extended to the (proof-relevant) concept of
+identification, rather than merely (proof-irrelevant) equality.  On these grounds univalence is intuitively plausible,
+but it has also been mathematically justified in two ways, by Voevodsky's (classical) model in simplicial sets, and
+Bezem, \textit{et al.}'s (constructive) model in cubical sets.  Developing the computational content of homotopy type
+theory remains an active area of investigation that promises to influence computing practice much as the intuitionistic
+version has done.
 
 *******************
 
