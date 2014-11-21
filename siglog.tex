@@ -102,7 +102,7 @@
 \maketitle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Homotopy Type Theory is an emerging unification of previously disparate frameworks for formalizing and mechanizing mathematics, one based on a computational conception of the type of a construction, the other based on a homotopical conception of the (homotopy) type of a space.  Indeed, the name ``homotopy type theory'' can be read in two ways, as ``(homotopy type) theory'' and ``homotopy (type theory)'', neatly summarizing the consolidation of ideas at the heart of the subject.  The computational notion of type has its origins in Brouwer's program of intuitionism, which sought to ground mathematics in the concept of an effective construction (one would say ``algorithm'' these days).  The homotopical notion of type emerges from abstract homotopy theory, in particular Grothendieck's conception of a space as an $\infty$-groupoid.  The former perspective was developed most fully by Per Martin-L\"{o}f, leading in particular to his Intuitionistic Theory of Types, on which the formal system of homotopy type theory is based.  The connection to homotopy theory was first hinted at in the groupoid interpretation of Hofmann and Streicher and then made explicit by Awodey and his students Lumsdaine and Warren, who showed that every type in Martin-L\"{o}f's system has the structure of an $\infty$-groupoid, and that the entire system can be interpreted in any Quillen model category, an abstract framework for doing homotopy theory.  The connection was clinched by Voevodsky's introduction of the \emph{univalence axiom}, which is motivated by the homotopical interpretation and relates the aforementioned identity type to the central notion of homotopy equivalence.
+Homotopy Type Theory is an emerging unification of previously disparate frameworks for formalizing and mechanizing mathematics, one based on a computational conception of the type of a construction, the other based on a homotopical conception of the (homotopy) type of a space.  Indeed, the name ``homotopy type theory'' can be read in two ways, as ``(homotopy type) theory'' and ``homotopy (type theory)'', neatly summarizing the consolidation of ideas at the heart of the subject.  The computational notion of type has its origins in Brouwer's program of intuitionism, which sought to ground mathematics in the concept of an effective construction (one would say ``algorithm'' these days).  The homotopical notion of type emerges from abstract homotopy theory, in particular Grothendieck's conception of a space as an $\infty$-groupoid.  The former perspective was developed most fully by Per Martin-L\"{o}f, leading in particular to his Intuitionistic Theory of Types~\cite{mltt}, on which the formal system of homotopy type theory is based.  The connection to homotopy theory was first hinted at in the groupoid interpretation of Hofmann and Streicher and then made explicit by Awodey and his students Lumsdaine and Warren, who showed that every type in Martin-L\"{o}f's system has the structure of an $\infty$-groupoid, and that the entire system can be interpreted in any Quillen model category, an abstract framework for doing homotopy theory.  The connection was clinched by Voevodsky's introduction of the \emph{univalence axiom}, which is motivated by the homotopical interpretation and relates the aforementioned identity type to the central notion of homotopy equivalence.
 
 Because univalence plays such a central role, Voevodsky has suggested that the unification of the computational and homotopical perspectives be called the \emph{Univalent Unification} of two major lines of development in mathematics.  A critically important point is that the univalent unification is \emph{fully compatible} with classical mathematics; it does not involve any principles that are incompatible with classical reasoning, though it does, at the outset, avoid postulating axioms that are unnecessary for much of the development.  Indeed, the formal system of homotopy type theory contains within it the whole of ZF set theory, with or without the Axiom of Choice, and with or without the Law of the Excluded Middle, two principles that lie at the heart of classical mathematics and that have, regrettably, been obstacles to the kind of unification described here.  By not insisting on these axioms globally, it is possible to consider a far richer notion of type than has hitherto been possible in the computational setting, namely one in which types are abstract spaces that can have non-trivial higher-dimensional structure, as exemplified by familiar examples such as the $n$-spheres for all $n\geq 0$.  Rather than being ``coded up'' as certain structured sets representing certain conceptions of space, such as a topological space, these objects instead arise \emph{synthetically} within the theory.  They are characterized by their introductory and eliminatory forms (mapping-in and mapping-out properties, or universal properties), rather than by how they are constructed as sets.  This perspective greatly simplifies many familiar constructions in homotopy theory, such as homotopy groups, truncations, and Eilenberg-MacLane spaces, and supports remarkably simple and clear proofs of well-known results, such as calculations of the higher homotopy groups of the spheres.  In this way it is possible to unify standard, classical logic and set theory with constructive logic and type theory by regarding the former as the logic of a very special kind of objects (namely, sets), and the latter as the general logic that applies not only to sets (the $0$-level spaces), but also to the higher types of spaces.
 
@@ -176,67 +176,101 @@ Now observe that by the basic recursive property of $S^1$ as ``the type freely g
   \caption{The twisted double cover of $S^1$ in classical topology}\label{fig:winding}
 \end{figure}
 %
-This important construction from homotopy theory is closely related to the celebrated Hopf fibration which, among other things, can be used to compute some of the higher homotopy groups of the spheres $S^2$ and $S^3$.  Indeed, one can construct the Hopf fibration in homotopy type theory in much the same way as the foregoing example, using univalence, negation, winding around the circle, and other constructions derived from combinations of logical, type-theoretic, and homotopical ideas.  
+This important construction from homotopy theory is closely related to the celebrated Hopf fibration which, among other things, can be used to compute some of the higher homotopy groups of the spheres $S^2$ and $S^3$.  Indeed, one can construct the Hopf fibration in homotopy type theory in much the same way as the foregoing example, using univalence, negation, winding around the circle, and other constructions derived from combinations of logical, type-theoretic, and homotopical ideas.  This sort of reasoning gives an entirely new ``synthetic" approach to some areas of classical mathematics like algebraic topology, which not only allows for the explicit logical formalization of classical results like the calculations of homotopy groups of spheres, but also permits their formal verification in computational proof systems based on a constructive system of logic.
 
-This sort of reasoning gives an entirely new ``synthetic" approach to some areas of classical mathematics like algebraic topology, which not only allows for the explicit logical formalization of classical results like the calculations of homotopy groups of spheres, but also permits their formal verification in computational proof systems based on a constructive system of logic.
+\todo[inline]{SA: revised the following -- see comments in the source file}
+%%%%%%%%%%%%
+% the following expands on and applies some of the material in 107-129, but also conflicts with it in some respects.
+% I have tried below to revise to avoid the repitition and make it more consistent, but this is just a suggestion.
+% I am leaving the original here in comments for comparison and possible reuse.
+%
+%
+%An important point about univalent foundations is that it subsumes the classical set-theoretic framework for doing
+%mathematics.  The hierarchy of $n$-types neatly accounts for classical set-theoretic foundations within a broader
+%framework of homotopy types.  Specifically, $-1$-types, which have at most one element up to higher identification,
+%correspond to classical proof-irrelevant propositions, except that whether to insist that every proposition be inhabited
+%or empty remains a consistent choice that one may accept or reject at will.  The $0$-types, for which equality is a
+%classical proposition ($-1$-type) that is taken to be ``self-evident'' or ``proof-irrelevant'' correspond to classical
+%sets, without prior commitment to choice principles or whether membership is a boolean proposition; these can be taken
+%as axioms according to preference, without fear of inconsistency.  The advantage of univalent foundations is that
+%besides the familiar concepts of proposition (classically formalized as predicate calculus) and set (classically given
+%by the Zermelo-Fr\"{a}nkel axioms), it provides an infinite hierarchy of dimensions extending beyond just these two.
+%For example, the $1$-types are the natural setting for set-theoretic structures, such as groups or rings, that one may
+%wish to identify up to isomorphism.  Because two groups, say, can be isomorphic in different ways, the evidence for
+%their identification must provide the mutually inverse pairs of homomorpisms that constitute the identification.
+%
+%Another import aspect of univalent foundations is that it extends Martin-L\"{o}f's type theory~\cite{mltt} with an
+%infinite hierarchy of dimensions that were hitherto inaccessible within the theory, even though models were known that
+%exhibited higher-dimensional structure~\cite{hofmann-streicher}.  Type theory was conceived as a foundation for
+%constructive mathematics, in which all constructions, including proofs of propositions, have direct computational
+%meaning in accordance with Brouwer's original program.  This connection with computation has proved enormously
+%influential in computer science, in particular in the theory of programming languages and the foundations of mechanized
+%proof.  At present homotopy type theory exploits the concept of proof relevance that is central to the constructivist
+%program (indeed, according to that program propositions are not just $-1$-types, but can be any $n$-type), and draws on
+%the emphasis on abstract types (for example, in the treatment of the identification type as an abstraction in itself,
+%rather than being encoded in terms of a concrete conception of homotopy).  The grand challenge is to extend the
+%computational interpretation to the full hierarchy of $n$-types, providing a computational meaning for, say, mappings
+%among higher-dimensional structures such as the spheres and toruses of arbitrary dimension.  Recent advances, such as
+%the development of a constructively valid model using cubical sets~\cite{bch}, strongly suggest that such a unification
+%is possible in the near future.  The implications for computer science are only beginning to be
+%explored~\cite{patch-theory}.
+%
+%It is a curious fact, made all the more interesting by the above-mentioned developments, that two of the most successful
+%systems for mechanized proof, NuPRL~\cite{nuprl-book} and Coq~\cite{coq}, are based on constructive type theory.  Why
+%ought that be the case?  Univalent foundations seems to provide a clue, namely the importance of proof-relevance for
+%both classical homotopy theory and constructive mathematics.  A significant contribution of homotopy type theory is that
+%it exploits the axiomatic freedom of constructive mathematics (that is, the diminished emphasis on axioms that are
+%inconsistent, at full strength, with univalence) to achieve a synthetic formulation of homotopy theory that is wholly
+%coherent with constructive mathematics.  As Voevodsky has emphasized, classical theorem provers may only be used by
+%rather involved encodings of the natural concept of space using structures such as topological spaces or simplicial
+%sets, greatly impeding the process of formalization required to admit machine-checked proof.  This experiene parallels
+%the development of high-level (abstract) programming languages that provide a synthetic concept of computation, rather
+%than one based on low-level machine models such as the Turing machine or Random-Access Machine.  Thus we find that
+%whether we are discussing mechanized proof or verified programming, Church's $\lambda$-calculus emerges as a central
+%concept.  Perhaps this explains why constructive mathematics and mechanized proof are so tightly linked.
+%
 
-\todo[inline]{OK, I'm happy with the the foregoing up to here (except for fixing the figure).  Now we need to do the
-  conclusion using the notes that follow.  RH: agreed.}
+As has been said, univalent foundations subsumes and extends the classical, set-theoretic framework for doing
+mathematics by making use of the hierarchy of h-levels, which neatly includes sets within a broader
+framework of homotopy types.  
+At the bottom level, the propositions (the types having at most one element, up to higher identification)
+correspond to classical, proof-irrelevant propositions; whether we also insist that every such proposition is either inhabited
+or empty is a further, consistent assumption that may be made if desired.  
+Next, the sets (for which equality is a
+classical proposition that is taken to be ``self-evident'' or ``proof-irrelevant'') correspond to classical
+sets, but without any prior commitment to choice principles, or whether membership is a boolean proposition.  
+Those principles can still be taken as axioms if needed, without fear of inconsistency.  
+The new insight of univalent foundations is that, besides the familiar concepts of proposition (classically formalized in predicate calculus) 
+and set (classically given by the Zermelo-Fraenkel axioms), there is an infinite hierarchy of further dimensions extending beyond just these two.  The groupoids (the next h-level above the sets) are the natural setting for systems of set-theoretic structures, such as groups and rings, that one may wish to regard as identified up to isomorphism.  Because two groups, say, can be isomorphic in many different ways, however, the evidence for an identification is not a trivial proposition, but consists in the mutually inverse pair of homomorpisms, i.e.\ the isomorphism, that warrant it.
 
-An important point about univalent foundations is that it subsumes the classical set-theoretic framework for doing
-mathematics.  The hierarchy of $n$-types neatly accounts for classical set-theoretic foundations within a broader
-framework of homotopy types.  Specifically, $-1$-types, which have at most one element up to higher identification,
-correspond to classical proof-irrelevant propositions, except that whether to insist that every proposition be inhabited
-or empty remains a consistent choice that one may accept or reject at will.  The $0$-types, for which equality is a
-classical proposition ($-1$-type) that is taken to be ``self-evident'' or ``proof-irrelevant'' correspond to classical
-sets, without prior commitment to choice principles or whether membership is a boolean proposition; these can be taken
-as axioms according to preference, without fear of inconsistency.  The advantage of univalent foundations is that
-besides the familiar concepts of proposition (classically formalized as predicate calculus) and set (classically given
-by the Zermelo-Fr\"{a}nkel axioms), it provides an infinite hierarchy of dimensions extending beyond just these two.
-For example, the $1$-types are the natural setting for set-theoretic structures, such as groups or rings, that one may
-wish to identify up to isomorphism.  Because two groups, say, can be isomorphic in different ways, the evidence for
-their identification must provide the mutually inverse pairs of homomorpisms that constitute the identification.
-
-Another import aspect of univalent foundations is that it extends Martin-L\"{o}f's type theory~\cite{mltt} with an
-infinite hierarchy of dimensions that were hitherto inaccessible within the theory, even though models were known that
-exhibited higher-dimensional structure~\cite{hofmann-streicher}.  Type theory was conceived as a foundation for
+An important advance provided by univalent foundations is that we can now distinguish, within Martin-L\"{o}f's type theory, an infinite hierarchy of dimensions that were hitherto unrecognized from within the theory, even though some models were previously known that apparently exhibited some higher-dimensional structure~\cite{hofmann-streicher}.  Type theory was of course originally conceived as a foundation for
 constructive mathematics, in which all constructions, including proofs of propositions, have direct computational
-meaning in accordance with Brouwer's original program.  This connection with computation has proved enormously
+meaning in accordance with Brouwer's original program.  This fundamental connection with computation has proved enormously
 influential in computer science, in particular in the theory of programming languages and the foundations of mechanized
-proof.  At present homotopy type theory exploits the concept of proof relevance that is central to the constructivist
-program (indeed, according to that program propositions are not just $-1$-types, but can be any $n$-type), and draws on
-the emphasis on abstract types (for example, in the treatment of the identification type as an abstraction in itself,
-rather than being encoded in terms of a concrete conception of homotopy).  The grand challenge is to extend the
-computational interpretation to the full hierarchy of $n$-types, providing a computational meaning for, say, mappings
+proof.  Homotopy type theory makes esential use of the concept of proof relevance that is so central to the constructive
+program %(indeed, according to that program propositions are not just $-1$-types, but can be any $n$-type), 
+% SA: omitting this remark as tangential and potnetially confusing  
+and emphasizes a notion of abstract types familiar from the theory of programming languages (e.g.\ the identification type is itself an abstraction, rather than being encoded in terms of a concrete conception of homotopy).  The grand challenge at this point is to extend the
+computational interpretation to the full hierarchy of h-levels, providing a computational meaning for, say, mappings
 among higher-dimensional structures such as the spheres and toruses of arbitrary dimension.  Recent advances, such as
 the development of a constructively valid model using cubical sets~\cite{bch}, strongly suggest that such a unification
-is possible in the near future.  The implications for computer science are only beginning to be
-explored~\cite{patch-theory}.
+will be possible in the near future.  The potential implications for computer science are only beginning to be explored~\cite{patch-theory}.
+
+% end of main revision
+%%%%%%%%%%%
+\todo[inline]{SA: end of revision -- see comments in the source file}
+
+An important application of the univalent unification of classical and constructive mathematics is the possibility of applying systems of mechanized proof verification to broad swaths of classical mathematics that were previously formalizable only via elaborate coding into set theory, and only in systems based on classical logic which generally lack the benefits resulting from the computational interpretation of constructive systems (e.g.\ the generation of independently verifiable proof certificates).  The direct, ``synthetic" formalization of everything from quotient sets to cohomology greatly simplifies and streamlines the formalization of even very advanced mathematics, and has the potential to eventually make formal verification into a practical tool for the everyday mathematician.  Interestingly, this practical development makes the logical foundations of mathematics finally relevant to the actual practice of mathematics, rather than being just a theoretical possibility.  The result may be a new ``post-G\"odel" attitude toward logical foundations; for when their only interest was theoretical, the phenomenon of incompleteness seemed to lessen the importance of logical foundations in principle.  But with the actual practical benefits of formalization (increased rigor and certainty, ease of remote collaboration, accumulation of results), the theoretical incompleteness phenomenon diminishes in importance, and logical foundations become useful tool in the toolbox of the work mathematician.
 
 It is a curious fact, made all the more interesting by the above-mentioned developments, that two of the most successful
-systems for mechanized proof, NuPRL~\cite{nuprl-book} and Coq~\cite{coq}, are based on constructive type theory.  Why
-ought that be the case?  Univalent foundations seems to provide a clue, namely the importance of proof-relevance for
-both classical homotopy theory and constructive mathematics.  A significant contribution of homotopy type theory is that
-it exploits the axiomatic freedom of constructive mathematics (that is, the diminished emphasis on axioms that are
-inconsistent, at full strength, with univalence) to achieve a synthetic formulation of homotopy theory that is wholly
-coherent with constructive mathematics.  As Voevodsky has emphasized, classical theorem provers may only be used by
-rather involved encodings of the natural concept of space using structures such as topological spaces or simplicial
-sets, greatly impeding the process of formalization required to admit machine-checked proof.  This experiene parallels
-the development of high-level (abstract) programming languages that provide a synthetic concept of computation, rather
-than one based on low-level machine models such as the Turing machine or Random-Access Machine.  Thus we find that
-whether we are discussing mechanized proof or verified programming, Church's $\lambda$-calculus emerges as a central
-concept.  Perhaps this explains why constructive mathematics and mechanized proof are so tightly linked.
+systems for mechanized proof, NuPRL~\cite{nuprl-book} and Coq~\cite{coq}, are both based on constructive type theory.  
+Why ought that be the case?  
+Univalent foundations may provide a clue in the importance of proof-relevance, and the associated distinction between property and structure, in both classical homotopy theory and constructive mathematics.  The synthetic formulation of homotopy theory achieved in homotopy type theory fully exploits the axiomatic freedom of constructive mathematics and relies far less on typically ``classical" axioms that, at full strength, are inconsistent with univalence. 
+As Voevodsky has emphasized, classical theorem provers may only be used by rather involved encodings of the natural concept of space, using structures such as topological spaces or simplicial sets, greatly impeding the process of formalization required to admit machine-checked proof.  
+This experience parallels the development of high-level (abstract) programming languages that provide a synthetic concept of computation, rather than one based on low-level machine models such as the Turing machine or Random-Access Machine.  
+Thus we find that whether we are discussing mechanized mathematical proof or verified computer programming, Church's $\lambda$-calculus emerges as a central concept.  Perhaps this explains why constructive mathematics and mechanized proof are so tightly linked.  That they should also be entwined with homotopy theory --- one of the most abstract, geometrical, and rarified areas of modern mathematics --- is a beautiful and challenging fact inviting further investigation.
 
-
-Some more things to mention:
-
-- formal verification of mathematics as a practical tool makes logical foundations finally relevant to mathematical practice, rather than just a theoretical possibility.  In fact, if the latter is their only interest, then Goedel matters, but given the actual practical benefits, Goedel doesn't. This is a new "post-Goedel" attitude to logical foundations. 
-
-- can something similar be said about foundations of computation ?  did people ever worry about Goedel the way the logicians do in connection with foundations of math?
-
-- higher category theory turns out to be naturally described by constructive methods, while the subsystem of 0-categories (i.e. the sets) still admits classical logic, without forcing the higher dimensional part to also be classical.  This seems to be a new way of conceiving of the relation between classical and constructive methods -- not as distinct systems related to each other as "stronger versus weaker", or even as the different  logic of "constant versus variable" objects, but as compatible subsystems of a single system that are simultaneously applicable to different parts of the universe, distinguished by the intrinsic complexity or "dimension" of the objects therein.
-
-we can close with saying that we are on the cusp of a revolution, in which two self-contained, well-motivated, well-justified, yet completely disparate frameworks for doing mathematics are not only being consolidated into a single, well-motivated, well-justified framework, but moreover the unified theory enriches and extends the classical framework without disrupting anything that has been achieved in that setting?
+%we can close with saying that we are on the cusp of a revolution, in which two self-contained, well-motivated, well-justified, yet completely disparate frameworks for doing mathematics are not only being consolidated into a single, well-motivated, well-justified framework, but moreover the unified theory enriches and extends the classical framework without disrupting anything that has been achieved in that setting?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{300}
