@@ -119,24 +119,26 @@ by Voevodsky's introduction of the \emph{univalence axiom}, which is motivated b
 relates type equality to homotopy equivalence.
 
 Because univalence plays such a central role, Voevodsky has suggested that the unification of the computational and
-homotopical perspectives be called the \emph{Univalent Unification}\todo[author=RH]{citation required, maybe ias article?} of two major lines of development in mathematics.  A
-critically important point is that the univalent unification is \emph{fully compatible} with classical mathematics; it
-does not involve any principles that are incompatible with classical reasoning, though it does, at the outset, avoid
-postulating axioms that are unnecessary for much of the development.  Indeed, the formal system of homotopy type theory
-contains within it the whole of ZF set theory, with or without the Axiom of Choice, and with or without the Law of the
-Excluded Middle, two principles that lie at the heart of classical mathematics and that have, regrettably, been
-obstacles to the kind of unification described here.  By not insisting on these axioms globally, it is possible to
-consider a far richer notion of type than has hitherto been possible in the computational setting, namely one in which
-types are abstract spaces that can have non-trivial higher-dimensional structure, as exemplified by familiar examples
-such as the $n$-spheres for all $n\geq 0$.  Rather than being ``coded up'' as certain structured sets representing
-certain conceptions of space, such as a topological space, these objects instead arise \emph{synthetically} within the
-theory.  They are characterized by their introductory and eliminatory forms (mapping-in and mapping-out properties, or
-universal properties), rather than by how they are constructed as sets.  This perspective greatly simplifies many
-familiar constructions in homotopy theory, such as homotopy groups, truncations, and Eilenberg-MacLane spaces, and
+homotopical perspectives be called the \emph{Univalent Unification}\todo[author=RH]{citation required, maybe ias
+  article?} of two major lines of development in mathematics.  A critically important point is that the univalent
+unification is \emph{fully compatible} with classical mathematics; it does not involve any principles that are
+incompatible with classical reasoning, though it does, at the outset, avoid postulating axioms that are unnecessary for
+much of the development.  Indeed, the formal system of homotopy type theory contains within it the whole of ZF set
+theory, with or without the Axiom of Choice, and with or without the Law of the Excluded Middle, two principles that lie
+at the heart of classical mathematics and that have, regrettably, been obstacles to the kind of unification described
+here.  By not insisting on these axioms globally, it is possible to consider a far richer notion of type than has
+hitherto been possible in the computational setting, namely one in which types are abstract spaces that can have
+non-trivial higher-dimensional structure, as exemplified by familiar examples such as the $n$-spheres for all $n\geq 0$.
+Rather than being ``coded up'' as certain structured sets representing certain conceptions of space, such as a
+topological space, these objects instead arise \emph{synthetically} within the theory.  They are characterized by their
+introductory and eliminatory forms (mapping-in and mapping-out properties, or universal properties), rather than by how
+they are constructed as sets.  This perspective greatly simplifies many familiar constructions in homotopy theory, such
+as homotopy groups~\cite{LS-Circ}, truncations~\cite{truncations}, and Eilenberg-MacLane spaces~\cite{LF-EM}, and
 supports remarkably simple and clear proofs of well-known results, such as calculations of the higher homotopy groups of
-the spheres.\todo[author=RH]{citations?}  In this way it is possible to unify standard, classical logic and set theory with constructive logic and
-type theory by regarding the former as the logic of a very special kind of objects (namely, sets), and the latter as the
-general logic that applies not only to sets (the $0$-level spaces), but also to higher types of spaces.
+the spheres~\cite{LB-PinSn}.  In this way it is possible to unify standard, classical logic and set theory with
+constructive logic and type theory by regarding the former as the logic of a very special kind of objects (namely,
+sets), and the latter as the general logic that applies not only to sets (the $0$-level spaces), but also to higher
+types of spaces.
 
 What is it that makes the univalent unification possible?  Although it may be too early to formulate a single, deep
 unifying principle, it is possible to make a few observations that will give the reader a sense of its inevitability.
@@ -365,53 +367,37 @@ modern mathematics --- is a beautiful and challenging fact inviting further inve
 
 %we can close with saying that we are on the cusp of a revolution, in which two self-contained, well-motivated, well-justified, yet completely disparate frameworks for doing mathematics are not only being consolidated into a single, well-motivated, well-justified framework, but moreover the unified theory enriches and extends the classical framework without disrupting anything that has been achieved in that setting?
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{thebibliography}{300}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\todo[inline,author=RH]{Why are we using a manual bibliography instead of BibTeX?  I added a .bib file; all my entries
+  are in there.  I would suggest putting yours there too?  Use whatever style you like, I did plain for now.}
 
-\bibitem{AW}
-S.~Awodey and M.A.~Warren. Homotopy theoretic models of identity types. \emph{Math. Proc. Camb. Phil. Soc.}, 146, 45--55, 2009.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{thebibliography}{300}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\bibitem{GvdB}
-B.~van den Berg and R.~Garner. Topological and Simplicial Models of Identity Types. \emph{ACM Transactions on Computational Logic}, 13:1, 2012.
+% \bibitem{AW}
+% S.~Awodey and M.A.~Warren. Homotopy theoretic models of identity types. \emph{Math. Proc. Camb. Phil. Soc.}, 146, 45--55, 2009.
 
-\bibitem{BCH}
-M.~Bezem, T.~Coquand, and S.~Huber.
-\newblock A model of type theory in cubical sets.
-\newblock (Unpublished Manuscript), March 2014.
+% \bibitem{GvdB}
+% B.~van den Berg and R.~Garner. Topological and Simplicial Models of Identity Types. \emph{ACM Transactions on Computational Logic}, 13:1, 2012.
 
-\bibitem{NuPRL}
-Robert L.~Constable, \textit{et al.}.
-\newblock {\em Implementing Mathematics with the {NuPRL} Proof Development System}.
-\newblock Prentice Hall, 1985.
+% \bibitem{CwF} 
+% P.~Dybjer. ``Internal Type Theory." \emph{LNCS} 1158, 120--134, 1996.
 
-\bibitem{coq}
-The Coq Proof Assistant.
-\newblock \texttt{http://coq.inria.fr}
+% \bibitem{HS}
+% M.~Hofmann and T.~Streicher.
 
-\bibitem{CwF} 
-P.~Dybjer. ``Internal Type Theory." \emph{LNCS} 1158, 120--134, 1996.
+% \bibitem{HoTTbook} 
+% \emph{Homotopy Type Theory: Univalent Foundations of Mathematics}, The Univalent Foundations Program, Institute for Advanced Study, 2013. {\tt http://homotopytypetheory.org/book}
 
-\bibitem{HS}
-M.~Hofmann and T.~Streicher.
-\newblock The groupoid model refutes uniqueness of identity proofs.
-\newblock In {\em LICS}, pages 208--212. IEEE Computer Society, 1994.
+% \bibitem{KLV}  
+% C.~Kapulkin, P.~LeFanu Lumsdaine and V.~Voevodsky, The Simplicial Model of Univalent Foundations. \emph{In preparation}, 2013.
 
-\bibitem{HoTTbook} 
-\emph{Homotopy Type Theory: Univalent Foundations of Mathematics}, The Univalent Foundations Program, Institute for Advanced Study, 2013. {\tt http://homotopytypetheory.org/book}
+% %
 
-\bibitem{KLV}  
-C.~Kapulkin, P.~LeFanu Lumsdaine and V.~Voevodsky, The Simplicial Model of Univalent Foundations. \emph{In preparation}, 2013.
+% \end{thebibliography}
 
-%
-\bibitem{mltt}
-P.~Martin-Lof and G.~Sambin.
-\newblock {\em Intuitionistic type theory}, volume~17.
-\newblock Bibliopolis Naples, 1984.
-
-
-
-\end{thebibliography}
+\bibliographystyle{plain}
+\bibliography{siglog}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
