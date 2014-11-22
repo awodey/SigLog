@@ -111,12 +111,12 @@ ground mathematics in the concept of an effective construction (one would say ``
 homotopical notion of type emerges from abstract homotopy theory, in particular Grothendieck's conception of a space as
 an $\infty$-groupoid.  The computational perspective was developed most fully by Per Martin-L\"{o}f, leading in
 particular to his Intuitionistic Theory of Types~\cite{mltt}, on which the formal system of homotopy type theory is
-based.  The connection to homotopy theory was first hinted at in the groupoid interpretation of Hofmann and Streicher
-and then made explicit by Awodey and his students Lumsdaine and Warren, who showed that every type in Martin-L\"{o}f's
-system has the structure of an $\infty$-groupoid, and that the entire system can be interpreted in any Quillen model
-category, an abstract framework for doing homotopy theory.  The connection was clinched by Voevodsky's introduction of
-the \emph{univalence axiom}, which is motivated by the homotopical interpretation, which relates type equality to
-homotopy equivalence.
+based.  The connection to homotopy theory was first hinted at in the groupoid interpretation of Hofmann and
+Streicher~\cite{HS} and then made explicit by Awodey and his students Lumsdaine and Warren~\cite{AW,AL}, who showed that
+every type in Martin-L\"{o}f's system has the structure of an $\infty$-groupoid, and that the entire system can be
+interpreted in any Quillen model category, an abstract framework for doing homotopy theory.  The connection was clinched
+by Voevodsky's introduction of the \emph{univalence axiom}, which is motivated by the homotopical interpretation, which
+relates type equality to homotopy equivalence.
 
 Because univalence plays such a central role, Voevodsky has suggested that the unification of the computational and
 homotopical perspectives be called the \emph{Univalent Unification} of two major lines of development in mathematics.  A
@@ -266,7 +266,7 @@ This important construction from homotopy theory is closely related to the celeb
 %
 %Another import aspect of univalent foundations is that it extends Martin-L\"{o}f's type theory~\cite{mltt} with an
 %infinite hierarchy of dimensions that were hitherto inaccessible within the theory, even though models were known that
-%exhibited higher-dimensional structure~\cite{hofmann-streicher}.  Type theory was conceived as a foundation for
+%exhibited higher-dimensional structure~\cite{HS}.  Type theory was conceived as a foundation for
 %constructive mathematics, in which all constructions, including proofs of propositions, have direct computational
 %meaning in accordance with Brouwer's original program.  This connection with computation has proved enormously
 %influential in computer science, in particular in the theory of programming languages and the foundations of mechanized
@@ -276,7 +276,7 @@ This important construction from homotopy theory is closely related to the celeb
 %rather than being encoded in terms of a concrete conception of homotopy).  The grand challenge is to extend the
 %computational interpretation to the full hierarchy of $n$-types, providing a computational meaning for, say, mappings
 %among higher-dimensional structures such as the spheres and toruses of arbitrary dimension.  Recent advances, such as
-%the development of a constructively valid model using cubical sets~\cite{bch}, strongly suggest that such a unification
+%the development of a constructively valid model using cubical sets~\cite{BCH}, strongly suggest that such a unification
 %is possible in the near future.  The implications for computer science are only beginning to be
 %explored~\cite{patch-theory}.
 %
@@ -317,7 +317,7 @@ An important advance provided by univalent foundations is that we can now distin
 theory, an infinite hierarchy of different ``homotopical dimensions" that were hitherto unrecognized from within the
 theory, even though some models were previously known that apparently\todo[author=RH]{Why ``apparently''?  Didn't they
   construct a valid groupoid model of type theory?} exhibited some higher-dimensional
-structure~\cite{hofmann-streicher}.  Type theory was of course originally conceived as a foundation for constructive
+structure~\cite{HS}.  Type theory was of course originally conceived as a foundation for constructive
 mathematics, in which all constructions, including proofs of propositions, have direct computational meaning in
 accordance with Brouwer's original program.  This fundamental connection with computation has proved enormously
 influential in computer science, in particular in the theory of programming languages and the foundations of mechanized
@@ -327,8 +327,8 @@ identification type is itself an abstraction, rather than being encoded in terms
 The grand challenge at this point is to extend the computational interpretation to the full hierarchy of h-levels,
 providing a computational meaning for, say, mappings among higher-dimensional structures such as the spheres and toruses
 of arbitrary dimension.  Recent advances, such as the development of a constructively valid model using cubical
-sets~\cite{bch}, strongly suggest that such a unification will be possible in the near future.  The potential
-implications for computer science are only beginning to be explored~\cite{patch-theory}.
+sets~\cite{BCH}, strongly suggest that such a unification will be possible in the near future.  The potential
+implications for computer science are only beginning to be explored~\cite{AMLH}.
 %
 % end of main revision
 %%%%%%%%%%%
@@ -348,7 +348,7 @@ rigor and certainty, ease of remote collaboration, accumulation of results), the
 diminishes in importance, and logical foundations can become a useful tool in the toolbox of the work mathematician.
 
 It is a curious fact, made all the more interesting by the above-mentioned developments, that two of the most successful
-systems for mechanized proof, NuPRL~\cite{nuprl-book} and Coq~\cite{coq}, are both based on constructive type theory.
+systems for mechanized proof, NuPRL~\cite{NuPRL} and Coq~\cite{Coq}, are both based on constructive type theory.
 Why ought that be the case?  Univalent foundations may provide a clue in the importance of proof-relevance, and the
 associated distinction between property and structure, in both classical homotopy theory and constructive mathematics.
 The synthetic formulation of homotopy theory achieved in homotopy type theory fully exploits the axiomatic freedom of
@@ -375,10 +375,27 @@ S.~Awodey and M.A.~Warren. Homotopy theoretic models of identity types. \emph{Ma
 \bibitem{GvdB}
 B.~van den Berg and R.~Garner. Topological and Simplicial Models of Identity Types. \emph{ACM Transactions on Computational Logic}, 13:1, 2012.
 
+\bibitem{BCH}
+M.~Bezem, T.~Coquand, and S.~Huber.
+\newblock A model of type theory in cubical sets.
+\newblock (Unpublished Manuscript), March 2014.
+
+\bibitem{NuPRL}
+Robert L.~Constable, \textit{et al.}.
+\newblock {\em Implementing Mathematics with the {NuPRL} Proof Development System}.
+\newblock Prentice Hall, 1985.
+
+\bibitem{coq}
+The Coq Proof Assistant.
+\newblock \texttt{http://coq.inria.fr}
+
 \bibitem{CwF} 
 P.~Dybjer. ``Internal Type Theory." \emph{LNCS} 1158, 120--134, 1996.
 
-\bibitem{HS} Hofman and Streicher 
+\bibitem{HS}
+M.~Hofmann and T.~Streicher.
+\newblock The groupoid model refutes uniqueness of identity proofs.
+\newblock In {\em LICS}, pages 208--212. IEEE Computer Society, 1994.
 
 \bibitem{HoTTbook} 
 \emph{Homotopy Type Theory: Univalent Foundations of Mathematics}, The Univalent Foundations Program, Institute for Advanced Study, 2013. {\tt http://homotopytypetheory.org/book}
@@ -387,6 +404,13 @@ P.~Dybjer. ``Internal Type Theory." \emph{LNCS} 1158, 120--134, 1996.
 C.~Kapulkin, P.~LeFanu Lumsdaine and V.~Voevodsky, The Simplicial Model of Univalent Foundations. \emph{In preparation}, 2013.
 
 %
+\bibitem{mltt}
+P.~Martin-Lof and G.~Sambin.
+\newblock {\em Intuitionistic type theory}, volume~17.
+\newblock Bibliopolis Naples, 1984.
+
+
+
 \end{thebibliography}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
