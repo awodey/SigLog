@@ -112,15 +112,13 @@ homotopical notion of type emerges from abstract homotopy theory, in particular 
 an $\infty$-groupoid.  The computational perspective was developed most fully by Per Martin-L\"{o}f, leading in
 particular to his Intuitionistic Theory of Types~\cite{mltt}, on which the formal system of homotopy type theory is
 based.  The connection to homotopy theory was first hinted at in the groupoid interpretation of Hofmann and
-Streicher~\cite{HS} and then made explicit by Awodey and his students Lumsdaine and Warren~\cite{AW,AL}, who showed that
+Streicher~\cite{HS} and then made explicit by Awodey and his students Lumsdaine and Warren~\cite{AW,L}, who showed that
 every type in Martin-L\"{o}f's system has the structure of an $\infty$-groupoid, and that the entire system can be
 interpreted in any Quillen model category, an abstract framework for doing homotopy theory.  The connection was clinched
 by Voevodsky's introduction of the \emph{univalence axiom}, which is motivated by the homotopical interpretation, which
 relates type equality to homotopy equivalence.
 
-Because univalence plays such a central role, Voevodsky has suggested that the unification of the computational and
-homotopical perspectives be called the \emph{Univalent Unification}\todo[author=RH]{citation required, maybe ias
-  article?} of two major lines of development in mathematics.  A critically important point is that the univalent
+Because univalence plays such a central role, Voevodsky has suggested that the unification of the computational and homotopical perspectives be called the \emph{Univalent Unification} of two major lines of development in mathematics.  A critically important point is that the univalent
 unification is \emph{fully compatible} with classical mathematics; it does not involve any principles that are
 incompatible with classical reasoning, though it does, at the outset, avoid postulating axioms that are unnecessary for
 much of the development.  Indeed, the formal system of homotopy type theory contains within it the whole of ZF set
@@ -133,7 +131,7 @@ Rather than being ``coded up'' as certain structured sets representing certain c
 topological space, these objects instead arise \emph{synthetically} within the theory.  They are characterized by their
 introductory and eliminatory forms (mapping-in and mapping-out properties, or universal properties), rather than by how
 they are constructed as sets.  This perspective greatly simplifies many familiar constructions in homotopy theory, such
-as homotopy groups~\cite{LS-Circ}, truncations~\cite{truncations}, and Eilenberg-MacLane spaces~\cite{LF-EM}, and
+as homotopy groups~\cite{HoTTbook,LS-Circ}, truncations~\cite{HoTTbook}, and Eilenberg-MacLane spaces~\cite{LF-EM}, and
 supports remarkably simple and clear proofs of well-known results, such as calculations of the higher homotopy groups of
 the spheres~\cite{LB-PinSn}.  In this way it is possible to unify standard, classical logic and set theory with
 constructive logic and type theory by regarding the former as the logic of a very special kind of objects (namely,
@@ -184,8 +182,9 @@ Thus in particular, logically equivalent propositions will be identified, as in 
 Church \cite{Church}.  Isomorphic sets, too, will be identified ``up to homotopy'', \textit{i.e.}\ by paths between them in the
 universe of all types, and similarly for equivalent groupoids, and equivalent types in general.
 
-This is not really the place for a systematic introduction (for that, see \cite{HoTTbook}), or even a general survey
-(such as \cite{apw,pw}), but a brief example may serve to convey a bit of the flavor of the new approach, especially the
+This is not really the place for a systematic introduction (for that, see \cite{HoTTbook}),  
+%or even a general survey (such as \cite{apw,pw}), 
+but a brief example may serve to convey a bit of the flavor of the new approach, especially the
 distinctive intermingling of logical and homotopical ideas.  As is the case in conventional Martin-L\"of type theory,
 the basic types of booleans $\B$ and natural numbers $\N$ can have at most one identification between any two elements;
 that is, given say $n, m : \N$ and $p,q: \id{\N}(n,m)$ in the identity type of $n$ and $m$, we always have
@@ -196,11 +195,16 @@ $\N$, or any other sets, by means of the usual type constructors of dependent su
 product $(\Pi{x:A})B(x)$ (which includes $A\times B$ and $A\rightarrow B$ as special cases) are also sets, and the same
 is true for the equality types $\id{A}(a,a')$ for $a,a':A$, for any set $A$.
 
- An example of a type that is not a set is the circle (or ``$1$-sphere'') $S^1$, which has a base point $b: S^1$ with many different self-identifications $\refl(b),\, p,\, p\cdot p,\, ... :\id{S^1}(b,b)$.  Here $\refl(b)$ is the trivial identification, \textit{i.e.}\ the canonical witness to the reflexivity of identity, but there is also another identification $p$ which is different from $\refl(b)$ in the sense that $\id{\left(\id{S^1}(b,b)\right)}(\refl(b), p)$ is empty.  We can think of $p$ homotopically as the continuous ``path" that goes once around the circle. 
+ An example of a type that is not a set is the circle (or ``$1$-sphere'') $S^1$, which has a base point $b: S^1$ and a generating loop $ p :\id{S^1}(b,b)$.  There are then many different self-identifications $\refl(b),\, p,\, p\cdot p,\, ... :\id{S^1}(b,b)$.  Here $\refl(b)$ is the trivial identification, \textit{i.e.}\ the canonical witness to the reflexivity of identity, but there is also another identification $p$ which is different from $\refl(b)$ in the sense that $\id{\left(\id{S^1}(b,b)\right)}(\refl(b), p)$ is empty.  We can think of $p$ homotopically as the continuous ``path" that goes once around the circle. 
 
-%
-\missingfigure[figwidth=3in]{draw a circle here, with $b$ and $p$ indicated}
-%
+\begin{figure}\centering
+  \begin{tikzpicture}[xscale=1,yscale=1]
+     \draw[->] (0,-2) circle (1.4 and 1.4);
+     \node (p) at (1.7,-2) {$p$};
+     \node[fill,circle,inner sep=1pt,label={below:$b$}] at (0,-3.4) {};
+  \end{tikzpicture}
+\caption{The 1-sphere $S^1$}\label{fig:s1}
+\end{figure}
 
 By the (function witnessing the) transitivity of equality, 
 \[
@@ -216,32 +220,58 @@ Another type that is not a set is the universe $\U$ of all (small) types.  Accor
  
 Now observe that by the basic recursive property of $S^1$ as ``the type freely generated by a point and a loop on it'', there is a map $$\rec(\B,n): S^1 \to \U$$ determined by sending the base point $b:S^1$ to the booleans $\B:\U$ and the generating loop $p : \id{S^1}(b,b)$ to (the loop corresponding under univalence to) negation, say $n : \id{\U}(\B,\B)$.  As a type of the form $\B\to\U$, this $\rec(\B,n)$ is thus a family of types over $\B$, sometimes called a ``dependent type" and written $x:\B \vdash \rec(\B,n)(x)$.  Homotopically, such a type-family is interpreted as a ``fibration" $E\to\B$, where the total space $E$ is just the sum type $(\Sigma{x:\B})\rec(\B,n)(x)$, equipped with its usual indexing projection.  In the present case, the ``fiber" is then the type $\rec(\B,n)(b) = \B$, and the action on (elements of) $\B$ induced by the path $n: \id{S^1}(b,b)$ in the base is exactly the operation of negation $\neg : \B\to \B$.  Thus, from a homotopical point of view, we have constructed the ``twisted double cover'' of the circle (see Figure \ref{fig:winding}).
 %
-\todo[inline]{fix this figure}
+%\todo[inline]{fix this figure}
 %
+%\begin{figure}\centering
+%  \begin{tikzpicture}[xscale=1.4,yscale=.6]
+%    \node (R) at (2,1) {$S^1$};
+%    \node (S1) at (2,-2) {$S^1$};
+%    \draw[->] (R) -- node[auto] {$\mathsf{double}$} (S1);
+%    \draw (0,-2) ellipse (1 and .4);
+%    \draw[dotted] (1,0) arc (0:-30:1 and .8);
+%    \draw (1,0) arc (0:90:1 and .8) arc (90:270:1 and .3) coordinate (t1);
+%    \draw[white,line width=4pt] (t1) arc (-90:90:1 and .8);
+%    \draw (t1) arc (-90:90:1 and .8) arc (90:270:1 and .3) coordinate (t2);
+%    \draw[white,line width=4pt] (t2) arc (-90:90:1 and .8);
+%    \draw (t2) arc (-90:90:1 and .8) arc (90:270:1 and .3) coordinate (t3);
+%    \draw[white,line width=4pt] (t3) arc (-90:90:1 and .8);
+%    \draw (t3) arc (-90:-30:1 and .8) coordinate (t4);
+%    \draw[dotted] (t4) arc (-30:0:1 and .8);
+%    \node[fill,circle,inner sep=1pt,label={below:\scriptsize $b$}] at (0,-2.4) {};
+%    \node[fill,circle,inner sep=1pt,label={above left:\scriptsize 0}] at (0,.2) {};
+%    \node[fill,circle,inner sep=1pt,label={above left:\scriptsize 1}] at (0,1.2) {};
+%    \node[fill,circle,inner sep=1pt,label={above left:\scriptsize 2}] at (0,2.2) {};
+%  \end{tikzpicture}
+%  \caption{The twisted double cover of $S^1$ in classical topology}\label{fig:winding}
+%\end{figure}
+
 \begin{figure}\centering
-  \begin{tikzpicture}[xscale=1.4,yscale=.6]
-    \node (R) at (2,1) {$S^1$};
+  \begin{tikzpicture}[xscale=1,yscale=1]
+    \node (R) at (2,0) {$S^1$};
     \node (S1) at (2,-2) {$S^1$};
-    \draw[->] (R) -- node[auto] {$\mathsf{double}$} (S1);
-    \draw (0,-2) ellipse (1 and .4);
-    \draw[dotted] (1,0) arc (0:-30:1 and .8);
-    \draw (1,0) arc (0:90:1 and .8) arc (90:270:1 and .3) coordinate (t1);
-    \draw[white,line width=4pt] (t1) arc (-90:90:1 and .8);
-    \draw (t1) arc (-90:90:1 and .8) arc (90:270:1 and .3) coordinate (t2);
-    \draw[white,line width=4pt] (t2) arc (-90:90:1 and .8);
-    \draw (t2) arc (-90:90:1 and .8) arc (90:270:1 and .3) coordinate (t3);
-    \draw[white,line width=4pt] (t3) arc (-90:90:1 and .8);
-    \draw (t3) arc (-90:-30:1 and .8) coordinate (t4);
-    \draw[dotted] (t4) arc (-30:0:1 and .8);
-    \node[fill,circle,inner sep=1pt,label={below:\scriptsize $b$}] at (0,-2.4) {};
-    \node[fill,circle,inner sep=1pt,label={above left:\scriptsize 0}] at (0,.2) {};
-    \node[fill,circle,inner sep=1pt,label={above left:\scriptsize 1}] at (0,1.2) {};
-    \node[fill,circle,inner sep=1pt,label={above left:\scriptsize 2}] at (0,2.2) {};
+    \draw[->] (R) -- node[auto] {} (S1);
+    \draw (0,-2) ellipse (1 and .5);
+%    \draw[dotted] (1,0) arc (0:-30:1 and .8);
+%    \draw (0,5) arc (0:90:1 and .5) arc (90:270:1 and .5) coordinate (t1);
+%    \draw (t1) arc (-90:45:1 and .5) ;% arc (90:270:1 and .3) coordinate (t2);
+    \draw (-1,0) arc (180:270:1 and .5) coordinate (t1);
+%    \draw[white,line width=4pt] (t1) arc (-90:90:1 and .8);
+    \draw (t1) arc (-90:90:1 and .7) arc (90:270:1 and .5) coordinate (t2);
+%    \draw[white,line width=4pt] (t2) arc (-90:90:1 and .8);
+    \draw (t2) arc (-90:90:1 and .3) arc (90:180:1 and .5) coordinate (t3);
+%    \draw[white,line width=4pt] (t3) arc (-90:90:1 and .8);
+ %  \draw (t3) arc (-90:-30:1 and .8) coordinate (t4);
+ %   \draw[dotted] (t4) arc (-30:0:1 and .8);
+    \node[fill,circle,inner sep=1pt,label={below:\scriptsize $b$}] at (0,-2.5) {};
+%    \node[fill,circle,inner sep=1pt,label={above left:\scriptsize 0}] at (0,.2) {};
+%    \node[fill,circle,inner sep=1pt,label={above left:\scriptsize 1}] at (0,1.2) {};
+%    \node[fill,circle,inner sep=1pt,label={above left:\scriptsize 2}] at (0,2.2) {};
   \end{tikzpicture}
-  \caption{The twisted double cover of $S^1$ in classical topology}\label{fig:winding}
+  \caption{The twisted double cover of $S^1$}\label{fig:winding}
 \end{figure}
+
 %
-This important construction from homotopy theory is closely related to the celebrated Hopf fibration which, among other things, can be used to compute some of the higher homotopy groups of the spheres $S^2$ and $S^3$.  Indeed, one can construct the Hopf fibration in homotopy type theory in much the same way as the foregoing example, using univalence, negation, winding around the circle, and other constructions derived from combinations of logical, type-theoretic, and homotopical ideas.  This sort of reasoning gives an entirely new ``synthetic" approach to some areas of classical mathematics like algebraic topology, which not only allows for the explicit logical formalization of classical results like the calculations of homotopy groups of spheres, but also permits their formal verification in computational proof systems based on a constructive system of logic.
+This construction from homotopy theory is closely related to the celebrated Hopf fibration which, among other things, can be used to compute some of the higher homotopy groups of the spheres $S^2$ and $S^3$.  Indeed, one can construct the Hopf fibration in homotopy type theory in much the same way as the foregoing example, using univalence, negation, winding around the circle, and other constructions derived from combinations of logical, type-theoretic, and homotopical ideas.  This sort of reasoning gives an entirely new ``synthetic" approach to some areas of classical mathematics like algebraic topology, which not only allows for the explicit logical formalization of classical results like the calculations of homotopy groups of spheres, but also permits their formal verification in computational proof systems based on a constructive system of logic.
 
 %%%%%%%%%%%%
 %
@@ -297,7 +327,7 @@ This important construction from homotopy theory is closely related to the celeb
 %concept.  Perhaps this explains why constructive mathematics and mechanized proof are so tightly linked.
 %
 
-\todo[author=RH]{revision looks good to me, but for one query below}
+%\todo[author=RH]{revision looks good to me, but for one query below}
 
 We can now say in a bit more detail how univalent foundations subsumes and extends the classical, set-theoretic
 framework for doing mathematics, by making use of the hierarchy of h-levels, which includes sets within a broader
@@ -317,9 +347,9 @@ isomorphism, that warrant it.
 
 An important advance provided by univalent foundations is that we can now distinguish, within Martin-L\"{o}f's type
 theory, an infinite hierarchy of different ``homotopical dimensions" that were hitherto unrecognized from within the
-theory, even though some models were previously known that apparently\todo[author=RH]{Why ``apparently''?  Didn't they
-  construct a valid groupoid model of type theory?} exhibited some higher-dimensional
-structure~\cite{HS}.  Type theory was of course originally conceived as a foundation for constructive
+theory, even though some models were previously known that  
+%\todo[author=RH]{Why ``apparently''?  Didn't they construct a valid groupoid model of type theory?} 
+exhibited some higher-dimensional structure~\cite{HS}.  Type theory was of course originally conceived as a foundation for constructive
 mathematics, in which all constructions, including proofs of propositions, have direct computational meaning in
 accordance with Brouwer's original program.  This fundamental connection with computation has proved enormously
 influential in computer science, in particular in the theory of programming languages and the foundations of mechanized
@@ -331,9 +361,6 @@ providing a computational meaning for, say, mappings among higher-dimensional st
 of arbitrary dimension.  Recent advances, such as the development of a constructively valid model using cubical
 sets~\cite{BCH}, strongly suggest that such a unification will be possible in the near future.  The potential
 implications for computer science are only beginning to be explored~\cite{AMLH}.
-%
-% end of main revision
-%%%%%%%%%%%
 
 An important application of the univalent unification of classical and constructive mathematics is the possibility of
 applying systems of mechanized proof verification to broad swaths of classical mathematics that were previously
@@ -365,9 +392,6 @@ central concept.  Perhaps this explains why constructive mathematics and mechani
 they should also be entwined with homotopy theory --- one of the most abstract, geometrical, and rarified areas of
 modern mathematics --- is a beautiful and challenging fact inviting further investigation.
 
-%we can close with saying that we are on the cusp of a revolution, in which two self-contained, well-motivated, well-justified, yet completely disparate frameworks for doing mathematics are not only being consolidated into a single, well-motivated, well-justified framework, but moreover the unified theory enriches and extends the classical framework without disrupting anything that has been achieved in that setting?
-
-\todo[inline,author=RH]{I added a .bib file; all my entries are in there, but I couldn't back-form yours.  Wuould you please put yours there too?  Use whatever style you like, I did plain for now.}
 
 %%% Steve: Your citations below are intact.
 
