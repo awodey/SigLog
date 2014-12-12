@@ -102,6 +102,16 @@
 \maketitle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\todo[inline,author=RH]{The biggest criticism overall from VV is that we do not represent the history fully and
+  faithfully, that there are technical mistakes surrounding the use of the word ``proposition'' for other than a
+  $-1$-type, esp. LEM, and that we do not state clearly what problems are solved and what remain open.  Because of his
+  objections about the validity of HIT's, any statements involving them are, to him, conditional on their validity.  He
+  also objects to subjective statements about beauty.  He feels that we've presented the subject as ``closed'' whereas
+  there are lots of opportunities for more work.  And he feels that ``Univalent Framework'' is the right term to use for
+  the foundational program he is pursuing that emphasizes machine-checked proof.  In his view the homotopy
+  interpretation is secondary to the foundational program.  I think the breezy style, which I found to be engaging, rubs
+  him up the wrong way.  (Please don't shoot the messenger!)  }
+
 Homotopy Type Theory is an emerging unification of previously disparate frameworks for formalizing and mechanizing
 mathematics, one based on a computational conception of the type of a construction, the other based on a homotopical
 conception of the (homotopy) type of a space.  Indeed, the name ``homotopy type theory'' can be read in two ways, as
@@ -114,29 +124,45 @@ particular to his Intuitionistic Theory of Types~\cite{mltt}, on which the forma
 based.  The connection to homotopy theory was first hinted at in the groupoid interpretation of Hofmann and
 Streicher~\cite{HS} and then made explicit by Awodey and his students Lumsdaine and Warren~\cite{AW,L}, who showed that
 every type in Martin-L\"{o}f's system has the structure of an $\infty$-groupoid, and that the entire system can be
-interpreted in any Quillen model category, an abstract framework for doing homotopy theory.  The connection was clinched
+interpreted in any Quillen model category, an abstract framework for doing homotopy theory.\todo[author=RH]{See below.}  The connection was clinched
 by Voevodsky's introduction of the \emph{univalence axiom}, which is motivated by the homotopical interpretation, which
 relates type equality to homotopy equivalence \cite{KLV}.
 
-Because univalence plays such a central role, Voevodsky has suggested that the unification of the computational and homotopical perspectives be called the \emph{Univalent Unification} of two major lines of development in mathematics.  A critically important point is that the univalent
-unification is \emph{fully compatible} with classical mathematics; it does not involve any principles that are
-incompatible with classical reasoning, though it does, at the outset, avoid postulating axioms that are unnecessary for
-much of the development.  Indeed, the formal system of homotopy type theory contains within it the whole of ZF set
-theory, with or without the Axiom of Choice, and with or without the Law of the Excluded Middle, two principles that lie
-at the heart of classical mathematics and that have, regrettably, been obstacles to the kind of unification described
-here.  By not insisting on these axioms globally, it is possible to consider a far richer notion of type than has
-hitherto been possible in the computational setting, namely one in which types are abstract spaces that can have
-non-trivial higher-dimensional structure, as exemplified by familiar examples such as the $n$-spheres for all $n\geq 0$.
-Rather than being ``coded up'' as certain structured sets representing certain conceptions of space, such as a
-topological space, these objects instead arise \emph{synthetically} within the theory.  They are characterized by their
-introductory and eliminatory forms (mapping-in and mapping-out properties, or universal properties), rather than by how
-they are constructed as sets.  This perspective greatly simplifies many familiar constructions in homotopy theory, such
-as homotopy groups~\cite{HoTTbook,LS-Circ}, truncations~\cite{HoTTbook}, and Eilenberg-MacLane spaces~\cite{LF-EM}, and
-supports remarkably simple and clear proofs of well-known results, such as calculations of the higher homotopy groups of
-the spheres~\cite{LB-PinSn}.  In this way it is possible to unify standard, classical logic and set theory with
-constructive logic and type theory by regarding the former as the logic of a very special kind of objects (namely,
-sets), and the latter as the general logic that applies not only to sets (the $0$-level spaces), but also to higher
-types of spaces.
+\todo[inline,author=RH]{Based on
+  what I got from VV, here we should say that the idea of the homotopy interpretation was in the air already in 2006, as
+  evidenced by the abstracts at the Uppsala meeting on this topic, with significant contributions from Garner,
+  Streicher, Hyland, van den Berg, Gambino, Warren discussing the subject and problems such as the Beck Condition.  We
+  should cite the Uppsala abstracts and Streicher's unpublished notes that appear to be what he spoke about at the
+  meeting.  We should also cite VV's 2006 ``Homotopy Lambda Calculus'' manuscript as initial work on the subject, and,
+  as now, the Streicher-Hofmann groupoid model.  And then the AW paper and VV's Coq library as crucial initial steps.
+}
+
+Because univalence plays such a central role, Voevodsky has suggested that the unification of the computational and
+homotopical perspectives be called the \emph{Univalent Framework} unifying two major lines of development in
+mathematics. A critically important point is that the univalent unification is \emph{fully compatible} with classical
+mathematics.  Although it does not involve any principles that are incompatible with classical reasoning, it does, at
+the outset, avoid postulating axioms that are unnecessary for much of the development.\todo[author=RH]{Clarify.}
+Indeed, the formal system of homotopy type theory contains within it the whole of ZF set theory, with or without the
+Axiom of Choice, and with or without the Law of the Excluded Middle, two principles that lie at the heart of classical
+mathematics and that have, regrettably, been obstacles to the kind of unification described here.  By not insisting on
+these axioms globally, it is possible to consider a far richer notion of type than has hitherto been possible in the
+computational setting, namely one in which types are abstract spaces that can have non-trivial higher-dimensional
+structure, as exemplified by familiar examples such as the $n$-spheres for all $n\geq 0$.  Rather than being encoded as
+certain structured sets representing certain conceptions of space, such as a topological space, these objects instead
+arise \emph{synthetically} within the theory.  They are characterized by their introductory and eliminatory forms
+(mapping-in and mapping-out properties, or universal properties), rather than by how they are constructed as
+sets.\todo[author=RH]{Perhaps clarify and relate to universal conditions?}  This perspective greatly simplifies many
+familiar constructions in homotopy theory, such as homotopy groups~\cite{HoTTbook,LS-Circ}, truncations~\cite{HoTTbook},
+and Eilenberg-MacLane spaces~\cite{LF-EM}, and supports remarkably simple and clear proofs\todo[author=RH]{Subjective}
+of well-known results, such as calculations of the higher homotopy groups of the
+spheres~\cite{LB-PinSn}.\todo[author=RH]{Depends on HIT's.  Maybe avoid subjective judgments, just say ``new proofs'' or
+  similar.}  In this way it is possible to unify standard, classical logic and set theory with constructive logic and
+type theory by regarding the former as the logic of a very special kind of objects (namely, sets), and the latter as the
+general logic that applies not only to sets (the $0$-level spaces), but also to higher types of
+spaces.\todo[author=RH]{Clarify propositions as $-1$-type, sets as $0$-types, relate to foundations based on predicate
+  calculus and axioms.}
+
+\todo[inline,author=RH]{Mechanization should be moved earlier as part of the overall UF program.}
 
 What is it that makes the univalent unification possible?  Although it may be too early to formulate a single, deep
 unifying principle, it is possible to make a few observations that will give the reader a sense of its inevitability.
@@ -145,36 +171,37 @@ type, are homotopy invariant, in the both sense that type families and mappings 
 ``paths'' in spaces, representing \emph{identifications} of points in the space, and that the formation of type-indexed
 products and sums of types, which correspond to analogous constructions on spaces, respect the homotopically motivated
 notion of type equivelence.  This invariance essentially follows from the basic fact that Martin-L\"{o}f's identity
-type, taken as a whole, corresponds to the \emph{total path space} of a space (see \cite{AW}); since everything in the
-formal system respects identity, everything in the interpretation respects homotopy, which is determined by
-identfication along paths.  Second, a characteristic feature of both intuitionistic type theory and higher homotopy
-theory is the emphasis on \emph{structure} over \emph{property}.  In intuitionistic mathematics types express
-propositions, and objects of the type are proofs of those propositions in the form of mathematical constructions that
-provide evidence for their truth.  A similar emphasis is found in abstract homotopy theory, in which paths (homotopies)
-may be seen as evidence for the identification (in a sense, ``equality'') of two points, and similarly for paths between
-the corresponding values of two functions.  Two points are not merely equal as a property, but rather are identified by
-a (not necessarily unique) construction.  This approach extends to higher dimensions in that one may speak of the
-identification of two (parallel) identifications, at all higher dimensions.  Such a structure of a hierarchy of
-identifications via path connectedness is found in standard settings for homotopy theory such as simplicial sets,
-cubical sets, and globular sets, all of which stress the role of cells as identifications.
+type, taken as a whole, corresponds to the \emph{total path space} of a space (see \cite{AW});\todo[author=RH]{only
+  citation?}  since everything in the formal system respects identity, everything in the interpretation respects
+homotopy, which is determined by identfication along paths.  Second, a characteristic feature of both intuitionistic
+type theory and higher homotopy theory is the emphasis on \emph{structure} over \emph{property}.  In intuitionistic
+mathematics types express propositions, and objects of the type are proofs of those propositions in the form of
+mathematical constructions that provide evidence for their truth.  A similar emphasis is found in abstract homotopy
+theory, in which paths (homotopies) may be seen as evidence for the identification (in a sense, ``equality'') of two
+points, and similarly for paths between the corresponding values of two functions.  Two points are not merely equal as a
+property, but rather are identified by a (not necessarily unique) construction.  This approach extends to higher
+dimensions in that one may speak of the identification of two (parallel) identifications, at all higher dimensions.
+Such a structure of a hierarchy of identifications via path connectedness is found in standard settings for homotopy
+theory such as simplicial sets, cubical sets, and globular sets, all of which stress the role of cells as
+identifications.
 
 The hierarchy of possible identifications leads to Voevodsky's conception of a hierarchy of homotopy levels, or h-levels
 for short, definable within type theory.  Whereas the usual hierarchy of size is determined by type universes or large
 cardinals in type theory or set theory, the hierarchy of h-levels is based not on the size, but on the internal
-structure of a type.  Roughly speaking, the lowest level consists of the types that have at most one element, called
-\emph{propositions}.  The next level, called \emph{sets}, consists of those whose identity types are propositions. After
-that come the types whose identity types are sets: the \emph{groupoids}.  And so on.  Just the recognition that this
-hierarchy of h-levels is present in the system of all types has been a huge advance in our understanding of type theory;
-previously, it was simply a mystery that some types were fully determined by their elements, while others seemed to
-behave as though they had some further structure.  The construction of quotient types, for example, is now greatly
-simplified when one knows that the equivalence relation being factored out is a family of propositions, and not
-``higher" types.  For another example, for types $A$ and $B$ that are propositions, the relevant notion of equivalence
-is \emph{logical equivalence}, represented by the type $A\leftrightarrow B$.  For sets, the relevant notion is
-\emph{isomorphism} $A\cong B$, and for groupoids, there is the notion of \emph{(categorical) equivalence} $A\simeq B$.
-Each of these concepts results by specializing the single, uniform notion of \emph{equivalence of types} $A\simeq B$ to
-the respective cases of propositions, sets, and groupoids.  In this setting, the new univalence axiom can be stated as
-the assertion that the type $A\simeq B$ of all equivalences between two types $A$ and $B$ is itself equivalent to their
-identity type,
+structure of a type.\todo[author=RH]{Make all this more precise?}  Roughly speaking, the lowest level consists of the
+types that have at most one element, called \emph{propositions}.  The next level, called \emph{sets}, consists of those
+whose identity types are propositions. After that come the types whose identity types are sets: the \emph{groupoids}.
+And so on.  Just the recognition that this hierarchy of h-levels is present in the system of all types has been a huge
+advance in our understanding of type theory; previously, it was simply a mystery that some types were fully determined
+by their elements, while others seemed to behave as though they had some further structure.  The construction of
+quotient types, for example, is now greatly simplified when one knows that the equivalence relation being factored out
+is a family of propositions, and not ``higher" types.  For another example, for types $A$ and $B$ that are propositions,
+the relevant notion of equivalence is \emph{logical equivalence}, represented by the type $A\leftrightarrow B$.  For
+sets, the relevant notion is \emph{isomorphism} $A\cong B$, and for groupoids, there is the notion of
+\emph{(categorical) equivalence} $A\simeq B$.  Each of these concepts results by specializing the single, uniform notion
+of \emph{equivalence of types} $A\simeq B$ to the respective cases of propositions, sets, and groupoids.  In this
+setting, the new univalence axiom can be stated as the assertion that the type $A\simeq B$ of all equivalences between
+two types $A$ and $B$ is itself equivalent to their identity type,
 \[\tag{UA}
 (A\simeq B)\ \simeq\  \id{}(A,B).
 \]
@@ -195,7 +222,12 @@ $\N$, or any other sets, by means of the usual type constructors of dependent su
 product $(\Pi{x:A})B(x)$ (which includes $A\times B$ and $A\rightarrow B$ as special cases) are also sets, and the same
 is true for the equality types $\id{A}(a,a')$ for $a,a':A$, for any set $A$.
 
- An example of a type that is not a set is the circle (or ``$1$-sphere'') $S^1$, which has a base point $b: S^1$ and a generating loop $ p :\id{S^1}(b,b)$.  There are then many different self-identifications $\refl(b),\, p,\, p\cdot p,\, ... :\id{S^1}(b,b)$.  Here $\refl(b)$ is the trivial identification, \textit{i.e.}\ the canonical witness to the reflexivity of identity, but there is also another identification $p$ which is different from $\refl(b)$ in the sense that $\id{\left(\id{S^1}(b,b)\right)}(\refl(b), p)$ is empty.  We can think of $p$ homotopically as the continuous ``path" that goes once around the circle. 
+An example of a type that is not a set is the circle (or ``$1$-sphere'') $S^1$, which has a base point $b: S^1$ and a
+generating loop $ p :\id{S^1}(b,b)$.  There are then many different self-identifications
+$\refl(b),\, p,\, p\cdot p,\, ... :\id{S^1}(b,b)$.  Here $\refl(b)$ is the trivial identification, \textit{i.e.}\ the
+canonical witness to the reflexivity of identity, but there is also another identification $p$ which is different from
+$\refl(b)$ in the sense that $\id{\left(\id{S^1}(b,b)\right)}(\refl(b), p)$ is empty.  We can think of $p$ homotopically
+as the continuous ``path" that goes once around the circle.
 
 \begin{figure}\centering
   \begin{tikzpicture}[xscale=1,yscale=1]
@@ -346,21 +378,20 @@ identification is not a trivial proposition, but consists in the mutually invers
 isomorphism, that warrant it.
 
 An important advance provided by univalent foundations is that we can now distinguish, within Martin-L\"{o}f's type
-theory, an infinite hierarchy of different ``homotopical dimensions" that were hitherto unrecognized from within the
-theory, even though some models were previously known that  
-%\todo[author=RH]{Why ``apparently''?  Didn't they construct a valid groupoid model of type theory?} 
-exhibited two-dimensional structure~\cite{HS}.  Type theory was of course originally conceived as a foundation for constructive
-mathematics, in which all constructions, including proofs of propositions, have direct computational meaning in
-accordance with Brouwer's original program.  This fundamental connection with computation has proved enormously
-influential in computer science, in particular in the theory of programming languages and the foundations of mechanized
-proof.  Homotopy type theory makes esential use of the concept of proof relevance that is so central to the constructive
-program and emphasizes a notion of abstract types familiar from the theory of programming languages (\textit{e.g.}\ the
-identification type is itself an abstraction, rather than being encoded in terms of a concrete conception of homotopy).
-The grand challenge at this point is to extend the computational interpretation to the full hierarchy of h-levels,
-providing a computational meaning for, say, mappings among higher-dimensional structures such as the spheres and toruses
-of arbitrary dimension.  Recent advances, such as the development of a constructively valid model using cubical
-sets~\cite{BCH}, strongly suggest that such a unification will be possible in the near future.  The potential
-implications for computer science are only beginning to be explored~\cite{AMLH}.
+theory, an infinite hierarchy of different ``homotopical dimensions" that were not fully developed until recently,
+despite constructions such as Hofmann and Streicher's two-dimensional groupoid model~\cite{HS} that strongly hinted at
+the importance of higher-dimensions.\todo[author=RH]{Note rephrasing.}  Type theory was of course originally conceived
+as a foundation for constructive mathematics, in which all constructions, including proofs of propositions, have direct
+computational meaning in accordance with Brouwer's original program.  This fundamental connection with computation has
+proved enormously influential in computer science, in particular in the theory of programming languages and the
+foundations of mechanized proof.  Homotopy type theory makes esential use of the concept of proof relevance that is so
+central to the constructive program and emphasizes a notion of abstract types familiar from the theory of programming
+languages (\textit{e.g.}\ the identification type is itself an abstraction, rather than being encoded in terms of a
+concrete conception of homotopy).  The grand challenge at this point is to extend the computational interpretation to
+the full hierarchy of h-levels, providing a computational meaning for, say, mappings among higher-dimensional structures
+such as the spheres and toruses of arbitrary dimension.  Recent advances, such as the development of a constructively
+valid model using cubical sets~\cite{BCH}, strongly suggest that such a unification will be achieved in the near future.
+The potential implications for computer science are only beginning to be explored~\cite{AMLH}.
 
 An important application of the univalent unification of classical and constructive mathematics is the possibility of
 applying systems of mechanized proof verification to broad swaths of classical mathematics that were previously
@@ -376,9 +407,12 @@ importance of logical foundations in principle.  But with the actual practical b
 rigor and certainty, ease of remote collaboration, accumulation of results), the theoretical incompleteness phenomenon
 diminishes in importance, and logical foundations can become a useful tool in the toolbox of the work mathematician.
 
+\todo[author=RH]{Not sure the preceding belongs here, but could perhaps by merged into what follows, and moved earlier
+  to the discussion of UF, of which mechanization is central.}
+
 It is a curious fact, made all the more interesting by the above-mentioned developments, that two of the most successful
-systems for mechanized proof, NuPRL~\cite{NuPRL} and Coq~\cite{Coq}, are both based on constructive type theory.
-Why ought that be the case?  Univalent foundations may provide a clue in the importance of proof-relevance, and the
+systems for mechanized proof, NuPRL~\cite{NuPRL} and Coq~\cite{Coq}, are both based on constructive type theory.  Why
+ought that be the case?  Univalent foundations may provide a clue in the importance of proof-relevance, and the
 associated distinction between property and structure, in both classical homotopy theory and constructive mathematics.
 The synthetic formulation of homotopy theory achieved in homotopy type theory fully exploits the axiomatic freedom of
 constructive mathematics and relies far less on typically ``classical" axioms that, at full strength, are inconsistent
