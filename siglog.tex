@@ -95,43 +95,46 @@
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{Homotopy Type Theory: Unified Foundations of Mathematics and Computation}
+\title{Homotopy Type Theory:
+ Unified Foundations of Mathematics and Computation\thanks{
+Thanks to Michael Mislove, Daniel Grayson, and Vladimir Voevodsky for helpful comments on an earlier draft.  Of course, the authors alone are still responsible for any errors or misstatements.}
+}
 \author{Steve Awodey \and Robert Harper}
 \date{\today}
 \maketitle
-\todo[author=SA]{Note proposed new title.  I'm trying to avoid the term "Univalent foundations" here and throughout.}  
+%\todo[author=SA]{Note proposed new title.  I'm trying to avoid the term "Univalent foundations" here and throughout.}  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-   \todo[inline,author=SA]{
-   
-    - "The biggest criticism overall from VV is that we do not represent the history fully and
-  faithfully," OK, I've made some revisions to that.
-  
-   - "that there are technical mistakes surrounding the use of the word ``proposition'' for other than a
-  $-1$-type, esp. LEM," fixed that where i could find it, but didn't find it much.
-  
-   - "and that we do not state clearly what problems are solved and what remain open." I don't see this either -- we do state some such.
-   
-  - "Because of his objections about the validity of HIT's, any statements involving them are, to him, conditional on their validity." this is not our problem.
-   
- - "He also objects to subjective statements about beauty." changed these. 
-   
- - "He feels that we've presented the subject as ``closed'' whereas there are lots of opportunities for more work. " see above. 
-     
--  "And he feels that ``Univalent Framework'' is the right term to use for the foundational program he is pursuing that emphasizes machine-checked proof." He can write his own article to promote this term -- I don't feel obliged to use it.}
+%   \todo[inline,author=SA]{
+%   
+%    - "The biggest criticism overall from VV is that we do not represent the history fully and
+%  faithfully," OK, I've made some revisions to that.
+%  
+%   - "that there are technical mistakes surrounding the use of the word ``proposition'' for other than a
+%  $-1$-type, esp. LEM," fixed that where i could find it, but didn't find it much.
+%  
+%   - "and that we do not state clearly what problems are solved and what remain open." I don't see this either -- we do state some such.
+%   
+%  - "Because of his objections about the validity of HIT's, any statements involving them are, to him, conditional on their validity." this is not our problem.
+%   
+% - "He also objects to subjective statements about beauty." changed these. 
+%   
+% - "He feels that we've presented the subject as ``closed'' whereas there are lots of opportunities for more work. " see above. 
+%     
+%-  "And he feels that ``Univalent Framework'' is the right term to use for the foundational program he is pursuing that emphasizes machine-checked proof." He can write his own article to promote this term -- I don't feel obliged to use it.}
+%
 
-
-Homotopy type theory is a recently-developed unification of previously disparate frameworks, which can serve to advance the project of formalizing and mechanizing mathematics.  One framework is based on a computational conception of the type of a construction, the other is based on a homotopical conception of the homotopy type of a space.  Indeed, the name ``homotopy type theory'' can be read in two ways, as
+\noindent Homotopy type theory is a recently-developed unification of previously disparate frameworks, which can serve to advance the project of formalizing and mechanizing mathematics.  One framework is based on a computational conception of the type of a construction, the other is based on a homotopical conception of the homotopy type of a space.  Indeed, the name ``homotopy type theory'' can be read in two ways, as
 ``(homotopy type) theory'' and ``homotopy (type theory)'', neatly summarizing the consolidation of ideas at the heart of
 the subject.  The computational notion of type has its origins in Brouwer's program of intuitionism, which sought to
 ground mathematics in the concept of an effective construction (one would say ``algorithm'' these days).  The
-homotopical notion comes from Grothendieck's late conception of the homotopy type of a space as represented by an $\infty$-groupoid \cite{GrothPS}.  The computational perspective was developed most fully by Per Martin-L\"{o}f, leading in
+homotopical notion comes from Grothendieck's late conception of the homotopy types of spaces as represented by  $\infty$-groupoids \cite{GrothPS}.  The computational perspective was developed most fully by Per Martin-L\"{o}f, leading in
 particular to his Intuitionistic Theory of Types~\cite{mltt}, on which the formal system of homotopy type theory is
 based.  The connection to homotopy theory was first hinted at in the groupoid interpretation of Hofmann and
-Streicher~\cite{HS,HofmannM:gromtt}.  It was then made explicit by several researchers, roughly simulataneously.\footnote{%
-Awodey and Warren~\cite{AW} showed that the basic system of Martin-L\"{o}f type theory can be interpreted in any Quillen model category (an abstract framework for doing homotopy theory); Lumsdaine \cite{L} and van den Berg and Garner \cite{vandenBergB:typwg} showed that every type in the system has the structure of an $\omega$-category, resp.\ weak $\infty$-groupoid; Gambino and Garner \cite{GG} showed that the type theory itself supports a weak factorization system (the basic building block of a Quillen model structure); and both Streicher \cite{StreicherNote} and Voevodsky \cite{VVnote} proposed interpretations into the category of simplicial sets, using ideas from homotopy theory.}
-The connection was finally cinched by Voevodsky's recent introduction of the \emph{univalence axiom}, which is motivated by the homotopical interpretation, and which relates type equality to homotopy equivalence \cite{KLV,APW}.
+Streicher~\cite{HS,HofmannM:gromtt}.  It was then made explicit by several researchers, roughly simultaneously.\footnote{%
+Awodey and Warren~\cite{AW} showed that the basic system of Martin-L\"{o}f type theory can be interpreted in a Quillen model category (an abstract framework for doing homotopy theory); Lumsdaine \cite{L} and van den Berg and Garner \cite{vandenBergB:typwg} showed that every type in the system has the structure of an $\omega$-category (a structure closely related to that of an $\infty$-groupoid); Gambino and Garner \cite{GG} showed that the type theory itself supports a weak factorization system (the basic building block of a Quillen model structure); and both Streicher \cite{StreicherNote} and Voevodsky \cite{VVnote} proposed interpretations into the category of simplicial sets, using ideas from homotopy theory.}
+The connection was finally cinched by Voevodsky's introduction of the \emph{univalence axiom}, which is motivated by the homotopical interpretation, and which relates type equality to homotopy equivalence \cite{KLV,APW}.
 
 %\todo[inline,author=RH]{Based on
 %  what I got from VV, here we should say that the idea of the homotopy interpretation was in the air already in 2006, as
@@ -147,10 +150,12 @@ The connection was finally cinched by Voevodsky's recent introduction of the \em
 %mathematics. 
 An important point is that this new unification is fully compatible with classical mathematics.  While it does not posit any principles that are incompatible with classical reasoning, it does avoid postulating certain classical axioms that are unnecessary for much of the development. 
 Indeed, the formal system of homotopy type theory contains a subsystem with roughly the same power as ZF set theory without the
-Axiom of Choice or the Law of the Excluded Middle, two principles that lie at the heart of classical mathematics and that have in the past been obstacles to the kind of unification described here.  By not insisting on these axioms globally, it is possible to consider a far richer notion of type than has hitherto been possible in the computational setting, namely one in which types are abstract spaces that can have non-trivial higher-dimensional structure, such as the $n$-spheres for all $n\geq 0$.  Rather than being encoded as structured sets representing a certain conception of space, such as topological space, these objects instead arise \emph{synthetically} within the theory.  They are characterized by their introductory and eliminatory forms (mapping-in and mapping-out properties, or universal properties in the sense of category theory), rather than by how they are constructed as sets. This perspective simplifies some familiar constructions in homotopy theory, such as homotopy groups~\cite{HoTTbook,LS-Circ}, truncations~\cite{HoTTbook}, and Eilenberg-MacLane spaces~\cite{LF-EM}, and supports new ``logical" proofs 
+Axiom of Choice or the Law of the Excluded Middle, two principles that lie at the heart of classical mathematics and that have in the past been obstacles to the kind of unification described here.  By not insisting on these principles as global axioms, it is possible to consider a far richer notion of type than has hitherto been possible in the computational setting, namely one in which types are abstract spaces that can have non-trivial higher-dimensional structure, such as the $n$-spheres for all $n\geq 0$.  Rather than being encoded as structured sets representing a certain conception of space, such as topological space, these objects instead arise \emph{synthetically} within the theory.  They are characterized by their introductory and eliminatory forms (universal properties in the sense of category theory), rather than by how they are constructed as sets. This perspective simplifies some familiar constructions in homotopy theory, such as homotopy groups~\cite{HoTTbook,LS-Circ} 
+% truncations~\cite{HoTTbook}, 
+and Eilenberg-MacLane spaces~\cite{LF-EM}, and supports new ``logical" proofs 
 %\todo[author=RH]{Subjective} 
 of some well-known results, such as calculations of the higher homotopy groups of the spheres~\cite{LB-PinSn}.  
-In this way it is possible to unify standard, classical logic and set theory with constructive logic and type theory, by regarding the former as the logic of a very special kind of objects (namely, sets), and the latter as the general logic that applies not only to sets, but also to more general spaces.  And, importantly, this possibility of explicit logical formalization in a constructive system of logic permits the formal verification of these results in computational proof systems based on construcive type theory.
+In this way it is possible to unify standard, classical logic and set theory, on the one hand, with constructive logic and type theory, on the other, by regarding the former as the logic of a special kind of object (namely, sets), and the latter as the general logic that applies not only to sets, but also to more general spaces.  And, importantly, the now possible formalization of classical mathematics in a constructive system of logic then permits the mechanized verification of these results in computational proof systems based on constructive type theory.
 %\todo[inline,author=RH]{Mechanization should be moved earlier as part of the overall UF program.}
 
 What is it that makes this new unification possible?  Although it may be too early to formulate a single, deep
@@ -161,13 +166,11 @@ type, are homotopy invariant, in both the  sense that type families and mappings
 products and sums of types, which correspond to analogous constructions on spaces, respect the homotopically motivated
 notion of type equivelence.  This invariance essentially follows from the basic fact that Martin-L\"{o}f's identity
 type corresponds to the \emph{path space} of a space, and since everything in the formal system respects identity, 
-everything in the interpretation respects homotopy, which is determined by identfication along paths.  Second, a characteristic feature of both intuitionistic type theory and homotopy theory is the emphasis on \emph{structure} over \emph{property}.  In intuitionistic
-mathematics, types express propositions, and objects of the type are proofs of those propositions in the form of
-mathematical constructions that provide evidence for their truth.  A similar emphasis is found in abstract homotopy
-theory, in which paths (homotopies) may be seen as evidence for the identification (in a sense, ``equality'') of two
-points, and similarly for paths between the corresponding values of two functions.  Two points are not merely equal as a
-property, but rather are identified by a (not necessarily unique) construction.  This approach extends to higher
-dimensions, in that one may speak of the identification of two (parallel) identifications, at all higher dimensions.
+everything in the interpretation respects homotopy, which is determined by identification along paths.  Second, a characteristic feature of both intuitionistic type theory and homotopy theory is an emphasis on \emph{structure} over \emph{property}.  Under the propositions-as-types conception of intuitionistic logic,\footnote{See, e.g., \cite{PAT} for a recent survey.} types express propositions, and objects of the type are proofs of those propositions in the form of mathematical constructions that provide evidence for their truth.  A similar emphasis can be discerned  in abstract homotopy
+theory, in which, e.g., paths (homotopies) may be seen as evidence for the ``identification" of two
+points, and similarly for paths between the corresponding values of two functions.  Two points are not merely ``equal", as a
+property, but rather are identified by a (not necessarily unique) deformation, construction, or procedure.  This approach extends to higher
+dimensions, in that one may speak of the identifications of two (parallel) identifications, at all higher dimensions.
 Such a structure of a hierarchy of identifications via path connectedness is found in standard settings for homotopy
 theory such as simplicial sets, cubical sets, and globular sets, all of which stress the role of cells as
 identifications.
@@ -194,7 +197,7 @@ two types $A$ and $B$ is itself equivalent to their identity type,
 (A\simeq B)\ \simeq\  \id{}(A,B).
 \]
 Thus in particular, logically equivalent propositions will be identified, as in the original, extensional type theory of
-Church \cite{Church}.  Isomorphic sets, too, will be identified ``up to homotopy'', \textit{i.e.}\ by paths between them in the
+Church \cite{Church}.  Isomorphic sets, too, will be identified ``up to homotopy'', \textit{i.e.}, by paths between them in the
 universe of all types, and similarly for equivalent groupoids, and equivalent types in general.  Note that this stipulation also serves to specify the otherwise underdetermined identity type $ \id{}(A,B)$.
 
 This is not really the place for a systematic introduction (for that, see \cite{HoTTbook}),  
@@ -205,15 +208,16 @@ the basic types of booleans $\B$ and natural numbers $\N$ can have at most one i
 that is, given say $n, m : \N$ and $p,q: \id{\N}(n,m)$ in the identity type of $n$ and $m$, we always have some
 $\alpha:\id{\left(\id{\N}(n,m)\right)}(p,q)$ identifying $p$ and $q$.  In this sense, there is no real information in
 the type $\id{\N}(n,m)$, apart from whether or not it is inhabited.  Such types with at most one identification between
-any two elements are called ``(h-)sets''.  Any types that can be constructed from $\B$,
+any two elements are called ``sets''.  Any types that can be constructed from $\B$,
 $\N$, or any other sets, by means of the usual type constructors of dependent sum $\Sigma_{x:A}\,B(x)$ and dependent
 product $\Pi_{x:A}\,B(x)$ (which include $A\times B$ and $A\rightarrow B$ as special cases) are also sets, and the same
-is true for the equality types $\id{A}(a,a')$ for $a,a':A$, for any set $A$.
+is true for the equality types $\id{A}(a,a')$ for $a,a':A$, for any set~$A$.
 
 An example of a type that is not a set is the circle (or ``$1$-sphere'') $S^1$, which has a base point $b: S^1$ and a
-generating loop $ p :\id{S^1}(b,b)$.  There are then many different self-identifications
-$\refl(b),\, p,\, p\cdot p,\, ... :\id{S^1}(b,b)$.  Here $\refl(b)$ is the trivial identification, \textit{i.e.}\ the
-canonical witness to the reflexivity of identity, but there is also another identification $p$ which is different from
+generating loop $ p :\id{S^1}(b,b)$.  There are then many different self-identifications, which may be labelled:
+$$\refl(b),\, p,\, p\cdot p,\, ... :\id{S^1}(b,b),$$ 
+Here $\refl(b)$ is the trivial identification, \textit{i.e.}, the
+canonical witness to the reflexivity of identity.  There is also the identification $p$, which is different from
 $\refl(b)$ in the sense that $\id{\left(\id{S^1}(b,b)\right)}(\refl(b), p)$ is empty.  We can think of $p$ homotopically
 as the continuous ``path" that goes once around the circle.
 
@@ -234,7 +238,7 @@ By the (function witnessing the) transitivity of equality,
  \[
  (-)^{-1}:\id{S^1}(a,b) \to \id{S^1}(b,a),
  \]
- there are similarly the paths $p^{-1},\, p^{-1}\cdot p^{-1}, \ldots :\id{S^1}(b,b)$.  Although $S^1$ is therefore not a set, it can be shown that $\id{S^1}(b,b)$ is one; that is, the types $\id{\left(\id{S^1}(b,b)\right)}(x,y)$ are either inhabited (by reflexivities) or empty, depending on whether or not $x=y$, for all $x,y : \id{S^1}(b,b)$.  Indeed, one can show that $\id{S^1}(b,b) \cong \mathbb{Z}$, i.e.\ the fundamental group of the type $S^1$ is the integers, as it should be \cite{LS-Circ}.  
+ there are similarly the paths $p^{-1},\, p^{-1}\cdot p^{-1}, \ldots :\id{S^1}(b,b)$.  Although $S^1$ is therefore not a set, it can be shown that $\id{S^1}(b,b)$ is one; that is, the types $\id{\left(\id{S^1}(b,b)\right)}(x,y)$ are either inhabited (by reflexivities) or empty, depending on whether or not $x=y$, for all $x,y : \id{S^1}(b,b)$.  Indeed, one can show that $\id{S^1}(b,b) \cong \mathbb{Z}$, \textit{i.e.}, the fundamental group of the type $S^1$ is the integers, as it should be \cite{LS-Circ}.  
 % In a situation like this, where the $\id{}$-type is always a set, we say that $S^1$ is a ``(homotopy) 1-type".  
 The proof of this uses the univalence axiom, together with the specification of $S^1$ as a new kind of \emph{higher} inductive type, generalizing the usual inductive specification of the natural numbers and similar structures.  For $S^1$, the inductive specification essentially says that $S^1$ is the type freely generated by the base point $b:S^1$ and the loop $p:\id{S^1}(b,b)$, in the same sense that the usual inductive specification of $\N$ says that it is the type freely generated by $0:\N$ and the successor function $s:\N\to\N$.  
   
@@ -292,7 +296,7 @@ Now observe that by the basic recursive property of $S^1$ as ``the type freely g
   \caption{The twisted double cover of $S^1$}\label{fig:winding}
 \end{figure}
 %
-This construction from homotopy theory is closely related to the celebrated Hopf fibration which, among other things, can be used to compute some of the higher homotopy groups of the spheres $S^2$ and $S^3$.  Indeed, one can construct the Hopf fibration in homotopy type theory in much the same way as the foregoing example, using univalence, negation, winding around the circle, and other constructions derived from combinations of logical, type-theoretic, and homotopical ideas \cite{Hopf}. 
+This construction from homotopy theory is closely related to the celebrated Hopf fibration which, among other things, can be used to compute some of the higher homotopy groups of the spheres $S^2$ and $S^3$.  Indeed, one can construct the Hopf fibration in homotopy type theory in much the same way as the foregoing example, using univalence, negation, winding around the circle, and other constructions derived from combinations of logical, type-theoretic, and homotopical ideas (see \cite{HoTTbook}, \S 8.5). 
 
 % This sort of reasoning gives an entirely new ``synthetic" approach to some areas of classical mathematics like algebraic topology, which not only allows for the explicit logical formalization of classical results like the calculations of homotopy groups of spheres, but also permits their formal verification in computational proof systems based on a constructive system of logic.
 
@@ -358,12 +362,11 @@ framework of homotopy types.  At the bottom level, the propositions (the types h
 identification) correspond to conventional, proof-irrelevant propositions; whether we also assert the law of excluded middle in the form that every such proposition is either inhabited or empty is a further, consistent assumption that may be made if classical logic is desired.  Next, the
 sets (for which equality is a proposition that is taken to be ``self-evident'' or ``proof-irrelevant'')
 correspond to the usual sets, but now without any commitment to choice principles, or whether membership is a boolean
-proposition.  Those further principles can still be consistently taken as axioms if needed, but they are not required, even with the introduction of infinite sets such as the type of natural numbers.
-The new insight of homotopy type theory is that, besides the familiar concepts of proposition (classically formalized in predicate
+proposition.  Those further principles can still be consistently taken as axioms if needed, but they are not required, even with the introduction of infinite sets such as the type of natural numbers. Voevodsky's new insight, which plays such an important role in homotopy type theory, is that, besides the familiar concepts of proposition (classically formalized in predicate
 calculus) and set (classically given by the Zermelo-Fraenkel axioms), there is an infinite hierarchy of further
 dimensions extending beyond just these two.  The groupoids (the next h-level above the sets), such as our example $S^1$, are the natural setting for systems of set-theoretic structures, such as groups and rings, that one may wish to regard as identified up to
 isomorphism.  Because two groups, say, can be isomorphic in many different ways, however, the evidence for an
-identification is not a trivial proposition, but consists in the mutually inverse pair of homomorpisms, \textit{i.e.}\ the
+identification is not a trivial proposition, but consists in the mutually inverse pair of homomorpisms, \textit{i.e.}, the
 isomorphism, that warrant it.
 
 In this way we can now distinguish, within Martin-L\"{o}f type theory, an infinite hierarchy of different ``homotopical dimensions" that were not fully recognized previously, despite such models as Hofmann and Streicher's two-dimensional groupoid interpretation~\cite{HS} that strongly hinted at the importance of higher-dimensions of structure.
@@ -374,7 +377,7 @@ computational meaning in accordance with Brouwer's original program.  This funda
 proved enormously influential in computer science, in particular in the theory of programming languages and the
 foundations of mechanized proof.  Homotopy type theory makes esential use of the concept of proof relevance that is so
 central to the constructive program and emphasizes a notion of abstract types familiar from the theory of programming
-languages (\textit{e.g.}\ the identification type is itself an abstraction, rather than being encoded in terms of a
+languages (\textit{e.g.}, the identification type is itself an abstraction, rather than being encoded in terms of a
 concrete conception of homotopy).  The grand challenge at this point is to extend the computational interpretation to
 the full hierarchy of h-levels, providing a computational meaning for, say, mappings among higher-dimensional structures
 such as the spheres and toruses of arbitrary dimension.  Recent advances, such as the development of a constructively
@@ -384,9 +387,9 @@ The potential implications for computer science are only beginning to be explore
 Perhaps the most important application of the unification of classical and constructive mathematics is the possibility of
 applying systems of mechanized proof verification to broad swaths of classical mathematics that were previously
 formalizable only via elaborate coding into set theory, and only in systems based on classical logic, which generally
-lack the benefits resulting from the computational interpretation of constructive systems (e.g.\ the generation of
+lack the benefits resulting from the computational interpretation of constructive systems (\textit{e.g.}, the generation of
 independently verifiable proof certificates).  The direct formalization of everything from quotient sets to cohomology simplifies 
-and streamlines the formalization of even very advanced mathematics, and has the
+and streamlines the formalization of even advanced mathematics, and has the
 potential to eventually make formal verification into a practical tool for the everyday mathematician.  Interestingly,
 this practical development makes the logical foundations of mathematics finally relevant to the actual practice of
 mathematics, rather than being just a theoretical possibility.  The result may be a new ``post-G\"odel" attitude toward
@@ -401,10 +404,8 @@ diminishes in importance, and logical foundations can become a useful tool in th
 It is a curious fact, made all the more interesting by the above-mentioned developments, that two of the most successful
 systems for mechanized proof, NuPRL~\cite{NuPRL} and Coq~\cite{Coq}, are both based on constructive type theory.  Why
 ought that be the case?  Homotopy type theory may provide a clue in the importance of proof-relevance, and the
-associated distinction between property and structure, in both classical homotopy theory and constructive mathematics.
-The univalent approach of homotopy type theory fully exploits the axiomatic freedom of 
-constructive mathematics and relies far less on elaborate encodings that impede the process of formalization required to admit machine-checked proof.  This experience parallels the development of
-high-level (abstract) programming languages that provide a synthetic concept of computation, rather than one based on
+associated distinction between property and structure, in both constructive mathematics and homotopy theory.
+The univalent approach of homotopy type theory exploits the axiomatic freedom provided by constructive mathematics, allowing it to rely far less on elaborate encodings which impede the process of formalization required to admit machine-checked proof.  This experience parallels the development of high-level (abstract) programming languages that provide a synthetic concept of computation, rather than one based on
 low-level machine models such as the Turing machine or Random-Access Machine.  Thus we find that whether we are
 discussing mechanized mathematical proof or verified computer programming, Church's $\lambda$-calculus emerges as a
 central concept.  Perhaps this explains why constructive mathematics and mechanized proof are so tightly linked.  That
