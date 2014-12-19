@@ -402,47 +402,53 @@ This construction from homotopy theory is closely related to the celebrated Hopf
 
 %\todo[author=RH]{revision looks good to me, but for one query below}
 
-We can now say in a bit more detail how the univalent framework of homotopy type theory subsumes and extends the classical, set-theoretic
-framework for doing mathematics, by making use of the hierarchy of h-levels, which includes sets within a broader
-framework of homotopy types.  At the bottom level, the propositions (the types having at most one element, up to higher
-identification) correspond to conventional, proof-irrelevant propositions; whether we also assert the law of excluded middle in the form that every such proposition is either inhabited or empty is a further, consistent assumption that may be made if classical logic is desired.  Next, the
-sets (for which equality is a proposition that is taken to be ``self-evident'' or ``proof-irrelevant'')
-correspond to the usual sets, but now without any commitment to choice principles, or whether membership is a boolean
-proposition.  Those further principles can still be consistently taken as axioms if needed, but they are not required, even with the introduction of infinite sets such as the type of natural numbers. Voevodsky's new insight, which plays such an important role in homotopy type theory, is that, besides the familiar concepts of proposition (classically formalized in predicate
-calculus) and set (classically given by the Zermelo-Fraenkel axioms), there is an infinite hierarchy of further
-dimensions extending beyond just these two.  The groupoids (the next h-level above the sets), such as our example $S^1$, are the natural setting for systems of set-theoretic structures, such as groups and rings, that one may wish to regard as identified up to
-isomorphism.  Because two groups, say, can be isomorphic in many different ways, however, the evidence for an
-identification is not a trivial proposition, but consists in the mutually inverse pair of homomorpisms, \textit{i.e.}, the
-isomorphism, that warrant it.
+We can now say in a bit more detail how the univalent framework of homotopy type theory subsumes and extends the
+classical, set-theoretic framework for doing mathematics, by making use of the hierarchy of h-levels, which includes
+sets within a broader framework of homotopy types.  At the bottom level, the propositions (the types having at most one
+element, up to higher identification) correspond to conventional, proof-irrelevant propositions; whether we also assert
+the law of excluded middle in the form that every such proposition is either inhabited or empty is a further, consistent
+assumption that may be made if classical logic is desired.  Next, the sets (for which equality is a proposition that is
+taken to be ``self-evident'' or ``proof-irrelevant'') correspond to the usual sets, but now without any commitment to
+choice principles, or whether membership is a boolean proposition.  Those further principles can still be consistently
+taken as axioms if needed, but they are not required, even with the introduction of infinite sets such as the type of
+natural numbers. Voevodsky's new insight, which plays such an important role in homotopy type theory, is that, besides
+the familiar concepts of proposition (classically formalized in predicate calculus) and set (classically given by the
+Zermelo-Fraenkel axioms), there is an infinite hierarchy of further dimensions extending beyond just these two.  The
+groupoids (the next h-level above the sets), such as our example $S^1$, are the natural setting for systems of
+set-theoretic structures, such as groups and rings, that one may wish to regard as identified up to isomorphism.
+Because two groups, say, can be isomorphic in many different ways, however, the evidence for an identification is not a
+trivial proposition, but consists in the mutually inverse pair of homomorpisms, \textit{i.e.}, the isomorphism, that
+warrant it.
 
-In this way we can now distinguish, within Martin-L\"{o}f type theory, an infinite hierarchy of different ``homotopical dimensions" that were not fully recognized previously, despite such models as Hofmann and Streicher's two-dimensional groupoid interpretation~\cite{HS} that strongly hinted at the importance of higher-dimensions of structure.
-%\todo[author=RH]{Note rephrasing.}  
-Type theory was of course originally conceived
-as a foundation for constructive mathematics, in which all constructions, including proofs of propositions, have direct
-computational meaning in accordance with Brouwer's original program.  This fundamental connection with computation has
-proved enormously influential in computer science, in particular in the theory of programming languages and the
-foundations of mechanized proof.  Homotopy type theory makes esential use of the concept of proof relevance that is so
-central to the constructive program and emphasizes a notion of abstract types familiar from the theory of programming
-languages (\textit{e.g.}, the identification type is itself an abstraction, rather than being encoded in terms of a
-concrete conception of homotopy).  The grand challenge at this point is to extend the computational interpretation to
-the full hierarchy of h-levels, providing a computational meaning for, say, mappings among higher-dimensional structures
-such as the spheres and toruses of arbitrary dimension.  Recent advances, such as the development of a constructively
-valid model using cubical sets~\cite{BCH}, strongly suggest that such a unification will be achieved in the near future.
-The potential implications for computer science are only beginning to be explored~\cite{AMLH}.
+In this way we can now distinguish, within Martin-L\"{o}f type theory, an infinite hierarchy of different ``homotopical
+dimensions" that were not fully recognized previously, despite such models as Hofmann and Streicher's two-dimensional
+groupoid interpretation~\cite{HS} that strongly hinted at the importance of higher-dimensions of structure.  Type theory
+was of course originally conceived as a foundation for constructive mathematics, in which all constructions, including
+proofs of propositions, have direct computational meaning in accordance with Brouwer's original program.  This
+fundamental connection with computation has proved enormously influential in computer science, in particular in the
+theory of programming languages and the foundations of mechanized proof.  Homotopy type theory makes esential use of the
+concept of proof relevance that is so central to the constructive program and emphasizes a notion of abstract types
+familiar from the theory of programming languages (\textit{e.g.}, the identification type is itself an abstraction,
+rather than being encoded in terms of a concrete conception of homotopy).  The grand challenge as of this writing is to
+extend the computational interpretation to the full hierarchy of h-levels, providing a computational meaning for, say,
+mappings among higher-dimensional structures such as the spheres and toruses of arbitrary dimension.  Recent advances,
+such as the landmark development of a constructively valid model using cubical sets~\cite{BCH}, strongly suggest that
+such a unification will be achieved in the near future.  The potential implications for computer science are only
+beginning to be explored~\cite{AMLH}.
 
-Perhaps the most important application of the unification of classical and constructive mathematics is the possibility of
-applying systems of mechanized proof verification to broad swaths of classical mathematics that were previously
+Perhaps the most important application of the unification of classical and constructive mathematics is the possibility
+of applying systems of mechanized proof verification to broad swaths of classical mathematics that were previously
 formalizable only via elaborate coding into set theory, and only in systems based on classical logic, which generally
-lack the benefits resulting from the computational interpretation of constructive systems (\textit{e.g.}, the generation of
-independently verifiable proof certificates).  The direct formalization of everything from quotient sets to cohomology simplifies 
-and streamlines the formalization of even advanced mathematics, and has the
-potential to eventually make formal verification into a practical tool for the everyday mathematician.  Interestingly,
-this practical development makes the logical foundations of mathematics finally relevant to the actual practice of
-mathematics, rather than being just a theoretical possibility.  The result may be a new ``post-G\"odel" attitude toward
-logical foundations; for when their only interest was theoretical, the phenomenon of incompleteness seemed to lessen the
-importance of logical foundations in principle.  But with the actual practical benefits of formalization (increased
-rigor and certainty, ease of remote collaboration, accumulation of results), the theoretical incompleteness phenomenon
-diminishes in importance, and logical foundations can become a useful tool in the toolbox of the working mathematician.
+lack the benefits resulting from the computational interpretation of constructive systems (\textit{e.g.}, the generation
+of independently verifiable proof certificates).  The direct formalization of everything from quotient sets to
+cohomology simplifies and streamlines the formalization of even advanced mathematics, and has the potential to
+eventually make formal verification into a practical tool for the everyday mathematician.  Interestingly, this practical
+development makes the logical foundations of mathematics finally relevant to the actual practice of mathematics, rather
+than being just a theoretical possibility.  The result may be a new ``post-G\"odel" attitude toward logical foundations;
+for when their only interest was theoretical, the phenomenon of incompleteness seemed to lessen the importance of
+logical foundations in principle.  But with the actual practical benefits of formalization (increased rigor and
+certainty, ease of remote collaboration, accumulation of results), the theoretical incompleteness phenomenon diminishes
+in importance, and logical foundations can become a useful tool in the toolbox of the working mathematician.
 
 %\todo[author=RH]{Not sure the preceding belongs here, but could perhaps by merged into what follows, and moved earlier
  % to the discussion of UF, of which mechanization is central.}
@@ -450,13 +456,16 @@ diminishes in importance, and logical foundations can become a useful tool in th
 It is a curious fact, made all the more interesting by the above-mentioned developments, that two of the most successful
 systems for mechanized proof, NuPRL~\cite{NuPRL} and Coq~\cite{Coq}, are both based on constructive type theory.  Why
 ought that be the case?  Homotopy type theory may provide a clue in the importance of proof-relevance, and the
-associated distinction between property and structure, in both constructive mathematics and homotopy theory.
-The univalent approach of homotopy type theory exploits the axiomatic freedom provided by constructive mathematics, allowing it to rely far less on elaborate encodings which impede the process of formalization required to admit machine-checked proof.  This experience parallels the development of high-level (abstract) programming languages that provide a synthetic concept of computation, rather than one based on
-low-level machine models such as the Turing machine or Random-Access Machine.  Thus we find that whether we are
-discussing mechanized mathematical proof or verified computer programming, Church's $\lambda$-calculus emerges as a
-central concept.  Perhaps this explains why constructive mathematics and mechanized proof are so tightly linked.  That
-they should also be entwined with homotopy theory --- one of the most abstract, geometrical, and rarified areas of
-modern mathematics --- is an intriguing and challenging fact inviting further investigation.
+associated distinction between property and structure, in both constructive mathematics and homotopy theory.  The
+univalent approach of homotopy type theory exploits the axiomatic freedom provided by constructive mathematics, allowing
+it to rely far less on elaborate encodings which impede the process of formalization required to admit machine-checked
+proof.  This experience parallels the development of high-level (abstract) programming languages that provide a
+synthetic concept of computation, rather than one based on low-level machine models such as the Turing machine or
+Random-Access Machine.  Thus we find that whether we are discussing mechanized mathematical proof or verified computer
+programming, Church's $\lambda$-calculus emerges as a central concept.  Perhaps this explains why constructive
+mathematics and mechanized proof are so tightly linked.  That they should also be entwined with homotopy theory --- one
+of the most abstract, geometrical, and rarified areas of modern mathematics --- is an intriguing and challenging fact
+inviting further investigation.
 
 
 %%% Steve: Your citations below are intact.
