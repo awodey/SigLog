@@ -191,9 +191,9 @@ is also internalized by Martin-L\"{o}f's ingenious concept of the \emph{identity
 corresponds to the \emph{path space} of a space, and might therefore be called the \emph{identification type} to
 emphasize its rich internal structure.  Second, a characteristic feature of both intuitionistic type theory and homotopy
 theory is an emphasis on \emph{structure} over \emph{property}.  Under the propositions-as-types conception of
-intuitionistic logic,\footnote{See, e.g., \cite{PAT} for a recent survey.} types express propositions, and objects of
+intuitionistic logic,\footnote{See, \textit{e.g.}, \cite{PAT} for a recent survey.} types express propositions, and objects of
 the type are proofs of those propositions in the form of mathematical constructions that provide evidence for their
-truth.  A similar emphasis can be discerned in abstract homotopy theory, in which, e.g., paths (homotopies) may be seen
+truth.  A similar emphasis can be discerned in abstract homotopy theory, in which, \textit{e.g.}, paths (homotopies) may be seen
 as evidence for the ``identification" of two points, and similarly for paths between the corresponding values of two
 functions.  Two points are not merely ``equal", as a property, but rather are identified by a (not necessarily unique)
 deformation, construction, or procedure.  This approach extends to higher dimensions, in that one may speak of the
@@ -202,62 +202,62 @@ identifications via path connectedness is found in standard settings for homotop
 cubical sets, and globular sets, all of which stress the role of cells as identifications.
 
 We thus see a natural harmony between the constructively motivated concept of \emph{proof relevance}, in which proofs
-are mathematical objects classified by a type (i.e., points in a space), and the homotopically motivated emphasis on
+are mathematical objects classified by a type (\textit{i.e.}, points in a space), and the homotopically motivated emphasis on
 structure over property.  A further advantage accrues from the concept of proof relevance, namely that it naturally
-supports a comprehensive approach to mechanized mathematics in which computer systems, such as Coq~\cite{coq}
+supports a comprehensive approach to mechanized mathematics in which computer systems, such as Coq~\cite{Coq}
 or~\cite{Agda}, may be used to verify the correctness of mathematical arguments, of either a classical, set-theoretic
 form, or a constructive, type-theoretic form.  In either case the proof of a theorem constitutes a formal mathematical
 object whose validity can be independently checked, avoiding the need to rely on the correctness of the proof checker
 itself.  Once a proof has been obtained, others may not only verify its correctness by the usual means, but one may also
 submit the proof to one's own checker to ensure that it is valid according to the rules of type theory.\footnote{Of
   course, one may question the meaningfulness of type theory itself.  But as G\"{o}del demonstrated such assumptions are
-  unavoidable.}  This approach is fundamentally the same as that proposed by de Bruijn in the AUTOMATH
-system~\cite{AUTOMATH}, albeit applied to a language with richer foundational commitments than were considered there.
-It should be contrasted with the approach of systems such as NuPRL~\cite{nuprl} or HOL~\cite{HOL,HOL-Light}, that rely
+  unavoidable.}  This approach is fundamentally the same as that proposed by de Bruijn in the Automath
+system~\cite{Automath}, albeit applied to a language with richer foundational commitments than were considered there.
+It should be contrasted with the approach of systems such as NuPRL~\cite{NuPRL} or HOL~\cite{HOL,HOL-Light}, that rely
 on a small trusted code base to ensure that validity of proofs.
 
 \smallskip
 
-Returning to the concept of identifications in a space, these lead to Voevodsky's conception of a hierarchy of
-\emph{homotopy levels}, or \emph{h-levels} for short, definable within type theory.  Whereas the usual hierarchy of size
-is determined by type universes or large cardinals in type theory or set theory, the hierarchy of h-levels is based
-instead on the internal structure of a type.
-%\todo[author=RH]{Make all this more precise?}  
-Very roughly speaking, the lowest level consists of the types that have at most one element, up to path-connectedness;
-these are called \emph{propositions}, and they correspond to the (empty or) contractible spaces.  The next level, called
-\emph{sets}, consists of those types whose identity types are themselves propositions. After that come the types whose
-identity types are sets: the \emph{groupoids}.  And so on.  Just the recognition that this hierarchy of h-levels is
-present in the system of all types has been a huge advance in our understanding of type theory; previously, it was
-simply a mystery that some types were fully determined by their elements, while others seemed to behave as though they
-had some further structure.  The construction of quotient types, for example, is now greatly simplified when one knows
-that the equivalence relation being factored out is a family of propositions, and not ``higher" types.  For another
-example, for types $A$ and $B$ that are propositions, the relevant notion of equivalence is \emph{logical equivalence},
-represented by the type $A\leftrightarrow B$.  For sets, the relevant notion is \emph{isomorphism} $A\cong B$, and for
-groupoids, there is the notion of \emph{(categorical) equivalence} $A\simeq B$.  Each of these concepts results by
-specializing the single, uniform notion of \emph{equivalence of types} $A\simeq B$ (also due to Voevodsky) to the
-respective cases of propositions, sets, and groupoids.
+The concept of identifications in a space leads to Voevodsky's conception of a hierarchy of \emph{homotopy levels}, or
+\emph{h-levels} for short, definable within type theory.  Whereas the usual hierarchy of size is determined by type
+universes or large cardinals in type theory or set theory, the hierarchy of h-levels is based instead on the internal
+structure of a type.  Roughly speaking, the lowest level consists of the types that have at most one element, up to
+path-connectedness; these are called \emph{propositions}, and they correspond to the (empty or) contractible spaces.
+The next level, called \emph{sets}, consists of those types whose identity types are themselves propositions --- two
+elements of a set are ``at most equal'', requiring no evidence for their equality.  After that come the types whose
+identity types are sets; these are the \emph{groupoids}.  And so on, with the identification types at level $n+1$ being
+$n$-types for all $n\geq 0$.  Just the recognition that this hierarchy of h-levels is present in the system of all types
+has been a huge advance in our understanding of type theory; previously, it was simply a mystery that some types were
+fully determined by their elements, while others seemed to behave as though they had some further structure.  The
+construction of quotient types, for example, is now greatly simplified when one knows that the equivalence relation
+being factored out is a family of propositions, and not of ``higher-dimensional" types.  For another example, for types
+$A$ and $B$ that are propositions, the relevant notion of equivalence is \emph{logical equivalence}, represented by the
+type $A\leftrightarrow B$.  For sets, the relevant notion is \emph{isomorphism} $A\cong B$, and for groupoids, there is
+the notion of \emph{(categorical) equivalence} $A\simeq B$.  Each of these concepts results by specializing the single,
+uniform notion of \emph{equivalence of types} $A\simeq B$ (also due to Voevodsky) to the respective cases of
+propositions, sets, and groupoids.
 
-In this setting, the new univalence axiom can be stated as the assertion that the type $A\simeq B$ of all equivalences between
-two types $A$ and $B$ is itself equivalent to their identity type,
+In this setting, Voevodsky's univalence axiom can be stated as the assertion that the type $A\simeq B$ of all
+equivalences between two types $A$ and $B$ is itself equivalent to their identity type,
 \[\tag{UA}
 (A\simeq B)\ \simeq\  \id{}(A,B).
 \]
 Thus in particular, logically equivalent propositions will be identified, as in the original, extensional type theory of
-Church \cite{Church}.  Isomorphic sets, too, will be identified ``up to homotopy'', \textit{i.e.}, by paths between them in the
-universe of all types, and similarly for equivalent groupoids, and equivalent types in general.  Note that this stipulation also serves to specify the otherwise underdetermined identity type $ \id{}(A,B)$.
+Church \cite{Church}.  Isomorphic sets, too, will be identified ``up to homotopy'', \textit{i.e.}, by paths between them
+in the universe of all types, and similarly for equivalent groupoids, and equivalent types in general.  Note that this
+stipulation also serves to specify the otherwise underdetermined identity type $ \id{}(A,B)$.
 
-This is not really the place for a systematic introduction (for that, see \cite{HoTTbook}),  
-%or even a general survey (such as \cite{apw,pw}), 
-but a brief example may serve to convey a bit of the flavor of the new approach, especially the
-distinctive intermingling of logical and homotopical ideas.  As is the case in conventional Martin-L\"of type theory,
-the basic types of booleans $\B$ and natural numbers $\N$ can have at most one identification between any two elements;
-that is, given say $n, m : \N$ and $p,q: \id{\N}(n,m)$ in the identity type of $n$ and $m$, we always have some
+This is not really the place for a systematic introduction (for that, see \cite{HoTTbook}), but a brief example may
+serve to convey a bit of the flavor of the new approach, especially the distinctive intermingling of logical and
+homotopical ideas.  As is the case in conventional Martin-L\"of type theory, the basic types of booleans $\B$ and
+natural numbers $\N$ can have at most one identification between any two elements; that is, given say $n, m : \N$ and
+$p,q: \id{\N}(n,m)$ in the identity type of $n$ and $m$, we always have some
 $\alpha:\id{\left(\id{\N}(n,m)\right)}(p,q)$ identifying $p$ and $q$.  In this sense, there is no real information in
 the type $\id{\N}(n,m)$, apart from whether or not it is inhabited.  Such types with at most one identification between
-any two elements are called ``sets''.  Any types that can be constructed from $\B$,
-$\N$, or any other sets, by means of the usual type constructors of dependent sum $\Sigma_{x:A}\,B(x)$ and dependent
-product $\Pi_{x:A}\,B(x)$ (which include $A\times B$ and $A\rightarrow B$ as special cases) are also sets, and the same
-is true for the equality types $\id{A}(a,a')$ for $a,a':A$, for any set~$A$.
+any two elements are called ``sets''.  Any types that can be constructed from $\B$, $\N$, or any other sets, by means of
+the usual type constructors of dependent sum $\Sigma_{x:A}\,B(x)$ and dependent product $\Pi_{x:A}\,B(x)$ (which include
+$A\times B$ and $A\rightarrow B$ as special cases) are also sets, and the same is true for the equality types
+$\id{A}(a,a')$ for $a,a':A$, for any set~$A$.
 
 An example of a type that is not a set is the circle (or ``$1$-sphere'') $S^1$, which has a base point $b: S^1$ and a
 generating loop $ p :\id{S^1}(b,b)$.  There are then many different self-identifications, which may be labelled:
@@ -386,7 +386,7 @@ This construction from homotopy theory is closely related to the celebrated Hopf
 %explored~\cite{patch-theory}.
 %
 %It is a curious fact, made all the more interesting by the above-mentioned developments, that two of the most successful
-%systems for mechanized proof, NuPRL~\cite{nuprl-book} and Coq~\cite{coq}, are based on constructive type theory.  Why
+%systems for mechanized proof, NuPRL~\cite{nuprl-book} and Coq~\cite{Coq}, are based on constructive type theory.  Why
 %ought that be the case?  Univalent foundations seems to provide a clue, namely the importance of proof-relevance for
 %both classical homotopy theory and constructive mathematics.  A significant contribution of homotopy type theory is that
 %it exploits the axiomatic freedom of constructive mathematics (that is, the diminished emphasis on axioms that are
