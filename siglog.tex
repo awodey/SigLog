@@ -6,7 +6,7 @@
 \documentclass[11pt]{article}
 \usepackage{amsmath}
 \usepackage{amssymb,latexsym}
-\usepackage{amsthm}
+%\usepackage{amsthm}
 \usepackage{bm}
 \input{prooftree}
 \usepackage[all,cmtip]{xy}
@@ -55,8 +55,8 @@
 \newcommand{\types}[2]{#1 \vdash #2:\type}
 \newcommand{\Gtypes}[1]{\types{\Gamma}{#1}}
 \newcommand{\term}[2]{#1\,:\,#2}
-\newcommand{\terms}[2]{#1 \vdash #2}
-\newcommand{\Gterms}[1]{\terms{\Gamma}{#1}}
+\newcommand{\Terms}[2]{#1 \vdash #2}
+\newcommand{\Gterms}[1]{\Terms{\Gamma}{#1}}
 \newcommand{\ext}[2]{{#1\!\centerdot\! #2}}
 \newcommand{\ty}{\ensuremath{\,:\,}}
 \newcommand{\pair}[1]{\ensuremath{\langle #1\rangle}}
@@ -77,19 +77,19 @@
 \newcommand{\UU}{\ensuremath{\widetilde{\mathcal{U}}}}
 
 % theorem styles
-\newtheorem{theorem}{Theorem}
-\newtheorem*{theorem*}{Theorem}
-\newtheorem{proposition}[theorem]{Proposition} 
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary} 
+% \newtheorem{theorem}{Theorem}
+% \newtheorem*{theorem*}{Theorem}
+% \newtheorem{proposition}[theorem]{Proposition} 
+% \newtheorem{lemma}[theorem]{Lemma}
+% \newtheorem{corollary}[theorem]{Corollary} 
 
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark} 
-\newtheorem*{remarks*}{Remarks}
-\newtheorem{example}[theorem]{Example}
+% \theoremstyle{remark}
+% \newtheorem{remark}[theorem]{Remark} 
+% \newtheorem*{remarks*}{Remarks}
+% \newtheorem{example}[theorem]{Example}
 
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
+% \theoremstyle{definition}
+% \newtheorem{definition}[theorem]{Definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -126,9 +126,6 @@
 \noindent Homotopy type theory is a recently-developed unification of previously disparate frameworks, which can serve
 to advance the project of formalizing and mechanizing mathematics.  One framework is based on a computational conception
 of the type of a construction, the other is based on a homotopical conception of the homotopy type of a space.  
-%Indeed,
-%the name ``homotopy type theory'' can be read in two ways, as ``(homotopy type) theory'' and ``homotopy (type theory)'',
-%neatly summarizing a consolidation of ideas lying at the heart of the subject.
 The computational notion of type has its origins in Brouwer's program of intuitionism, which sought to ground
 mathematics in the concept of an effective construction (one would say ``algorithm'' these days).  The homotopical
 notion comes from Grothendieck's late conception of  homotopy types of spaces as represented by $\infty$-groupoids
