@@ -123,29 +123,38 @@
 %-  "And he feels that ``Univalent Framework'' is the right term to use for the foundational program he is pursuing that emphasizes machine-checked proof." He can write his own article to promote this term -- I don't feel obliged to use it.}
 %
 
-\noindent Homotopy type theory is a recently-developed unification of previously disparate frameworks, which can serve
-to advance the project of formalizing and mechanizing mathematics.  One framework is based on a computational conception
-of the type of a construction, the other is based on a homotopical conception of the homotopy type of a space.  
-The computational notion of type has its origins in Brouwer's program of intuitionism, which sought to ground
-mathematics in the concept of an effective construction (one would say ``algorithm'' these days).  The homotopical
-notion comes from Grothendieck's late conception of  homotopy types of spaces as represented by $\infty$-groupoids
-\cite{GrothPS}.  The computational perspective was developed most fully by Per Martin-L\"{o}f, leading in particular to
-his Intuitionistic Theory of Types~\cite{mltt}, on which the formal system of homotopy type theory is based. The
-connection to homotopy theory was first hinted at in the groupoid interpretation of Hofmann and
-Streicher~\cite{HS,HofmannM:gromtt}.\footnote{The importance of equality of
-elements of a type in constructive mathematics was also emphasized by
-Bishop~\cite{bishop:ca}.  Quotient types, which were introduced in NuPRL as a
+\noindent Homotopy type theory is a recently-developed unification of previously
+disparate frameworks, which can serve to advance the project of formalizing and
+mechanizing mathematics.  One framework is based on a computational conception
+of the type of a construction, the other is based on a homotopical conception of
+the homotopy type of a space.  The computational notion of type has its origins
+in Brouwer's program of intuitionism, and Church's $\lambda$-calculus, both of
+which sought to ground mathematics in computation (one would say ``algorithm''
+these days).  The homotopical notion comes from Grothendieck's late conception
+of homotopy types of spaces as represented by $\infty$-groupoids \cite{GrothPS}.
+The computational perspective was developed most fully by Per Martin-L\"{o}f,
+leading in particular to his Intuitionistic Theory of Types~\cite{mltt}, on
+which the formal system of homotopy type theory is based. The connection to
+homotopy theory was first hinted at in the groupoid interpretation of Hofmann
+and Streicher~\cite{HS,HofmannM:gromtt}.\footnote{The importance of equality of
+  elements of a type in constructive mathematics was also emphasized by
+  Bishop~\cite{bishop:ca}.  Quotient types, which were introduced in NuPRL as a
   further development of Bishop's and Martin-L\"{o}f's ideas~\cite{NuPRL}, may
-  be seen as a particular case of this connection.}    It was then made explicit by several researchers, roughly
-simultaneously.\footnote{%
-  Awodey and Warren~\cite{AW} showed that the basic system of Martin-L\"{o}f type theory can be interpreted in a Quillen
-  model category (an abstract framework for doing homotopy theory); Lumsdaine \cite{L} and van den Berg and Garner
-  \cite{vandenBergB:typwg} showed that every type in the system has the structure of an $\omega$-category (a structure
-  closely related to that of an $\infty$-groupoid); Gambino and Garner \cite{GG} showed that the type theory itself
-  supports a weak factorization system (the basic building block of a Quillen model structure); and both Streicher
-  \cite{StreicherNote} and Voevodsky \cite{VVnote} proposed interpretations into the category of simplicial sets, using
-  ideas from homotopy theory.}  The connection was clinched by Voevodsky's introduction of the \emph{univalence axiom},
-which is motivated by the homotopical interpretation, and which relates type equality to homotopy equivalence~\cite{KLV,APW}.
+  be seen as a particular case of this connection.}  It was then made explicit
+by several researchers, roughly simultaneously.\footnote{%
+  Awodey and Warren~\cite{AW} showed that the basic system of Martin-L\"{o}f
+  type theory can be interpreted in a Quillen model category (an abstract
+  framework for doing homotopy theory); Lumsdaine \cite{L} and van den Berg and
+  Garner \cite{vandenBergB:typwg} showed that every type in the system has the
+  structure of an $\omega$-category (a structure closely related to that of an
+  $\infty$-groupoid); Gambino and Garner \cite{GG} showed that the type theory
+  itself supports a weak factorization system (the basic building block of a
+  Quillen model structure); and both Streicher \cite{StreicherNote} and
+  Voevodsky \cite{VVnote} proposed interpretations into the category of
+  simplicial sets, using ideas from homotopy theory.}  The connection was
+clinched by Voevodsky's introduction of the \emph{univalence axiom}, which is
+motivated by the homotopical interpretation, and which relates type equality to
+homotopy equivalence~\cite{KLV,APW}.
 
 %\todo[inline,author=RH]{Based on
 %  what I got from VV, here we should say that the idea of the homotopy interpretation was in the air already in 2006, as
